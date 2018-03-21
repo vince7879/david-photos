@@ -1,1 +1,476 @@
 /* You can add global styles to this file, and also import other style files */
+
+body{
+    background-color: black;
+    /* background-color: #ffffff; */
+    color: #ebebeb;
+}
+
+#main{
+    width: 510px;
+    height: 520px;
+    border: solid 2px #ffffff;
+    /*margin: 0 auto;*/
+    margin: 70px 0 0 230px;
+  }
+  
+  /*bordure des blocks*/
+  #main a, #main div:nth-child(14).white {
+          border: solid 5px black;
+  }
+  
+  /*couleurs des blocks*/
+  #main .white{ background-color: #ebebeb; }
+  #main .yellow{ background-color: #e5c55e; }
+  #main .brown{ background-color: #3e1d0c; }
+  #main .red{ background-color: #dc0a0b; }
+  #main .purple{ background-color: #a3307d; }
+  #main .black{ background-color: #000000; }
+  #main .green{ background-color: #267c3f; }
+  #main .grey{ background-color: #6f787d; }
+  #main .blue{ background-color: #0e104d; }
+  #main .black-white {
+        background: repeating-linear-gradient(
+        45deg,
+        #000000,
+        /* #000000 16.66%,
+        #ebebeb 16.66%,
+        #ebebeb 33.33% */
+        /* #000000 1.5%,
+        #ebebeb 2%,
+        #ebebeb 3% */
+        /* #000000 1.5%,
+        #ebebeb 2.5%,
+        #ebebeb 3.5% */
+        #000000 2%,
+        #ebebeb 2%,
+        #ebebeb 3.5%
+        );
+  }
+  
+  
+  /*positions des blocks*/
+  #main > a, 
+  #main > div,
+  #main > div > a {
+          float: left;
+  }
+  
+  
+  #main a:first-child{
+    height: 40px;
+    text-align: center;
+    text-decoration: none;
+    width: 105px;
+  }
+  
+  #main a:first-child span{
+    display: inline-block;
+    color: black;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 4px;
+  }
+  
+  #main a:nth-child(2){
+    width: 188px;
+    height: 40px;
+  }
+  
+  #main a:nth-child(3){
+    width: 155px;
+    height: 40px;
+  }
+  
+  
+  /*barre de gauche -> 3 blocs*/
+  #main div:nth-child(4){
+    width: 50px;      
+  }
+  
+  #main div:nth-child(4) a.brown,
+  #main div:nth-child(4) a.white,
+  #main div:nth-child(4) a.yellow{
+    width: 40px;
+  }
+  
+  #main > div:nth-child(4) > a:first-child{
+    height: 125px;
+  }
+  
+  #main div:nth-child(4) a:nth-child(2){
+    height: 195px;
+  }
+  
+  #main div:nth-child(4) a:nth-child(3){
+    height: 120px;
+  }
+  
+  /*gros bloc rouge*/
+  #main a:nth-child(5){
+    width: 253px;
+    height: 260px;
+  }
+  
+  #main a:nth-child(6){
+    width: 155px;
+    height: 125px;
+    
+  }
+  #main a:nth-child(7){
+    width: 72px;
+    height: 125px;
+  }
+  #main a:nth-child(8){
+    width: 73px;
+    height: 125px;
+  }
+  
+  /*ensemble ac bloc noir*/
+  #main div:nth-child(9){
+    width: 140px;      
+  }
+  #main div:nth-child(9) a:first-child{
+    width: 130px;
+    height: 125px;
+  }
+  #main div:nth-child(9) a:nth-child(2){
+    width: 130px;
+    height: 55px;
+  }
+  
+  #main a:nth-child(10){
+    width: 113px;
+    height: 60px;
+  }
+  
+  #main a:nth-child(11){
+    width: 155px;
+    height: 60px;
+  }
+
+  #main > a:nth-child(11) > img {
+    width: 94%;
+    margin-left: 3%;
+    margin-top: 12px;
+  }
+  
+  /*ensemble ac blocs vert et gris*/
+  #main div:nth-child(12){
+    width: 123px;      
+  }
+  #main div:nth-child(12) a:first-child{
+    width: 113px;
+    height: 55px;
+  }
+  #main div:nth-child(12) a:nth-child(2){
+    width: 113px;
+    height: 30px;
+  }
+  
+  #main a:nth-child(13){
+    width: 155px;
+    height: 95px;
+  }
+  
+  /*bloc copyright blanc*/
+  #main div:nth-child(14){
+    position: relative;
+    width: 278px;
+    height: 15px;
+    font-size: 10px;
+  }
+  #main div:nth-child(14) span{
+    position: absolute;      
+    bottom: 2px;
+  }
+  #main div:nth-child(14) span:first-child{
+    margin-left: 5px;
+  }
+  #main div:nth-child(14) span:last-child{
+    right: 0;
+    margin-right: 5px;
+  }
+  
+  /*barre de droite -> 2 blocs*/
+  #main div:nth-child(15){
+    margin-top: -495px;
+    width: 32px;      
+  }
+  
+  #main div:nth-child(15) a:first-child{
+    width: 22px;
+    height: 380px;
+  }
+  
+  #main div:nth-child(15) a:nth-child(2){
+    width: 22px;
+    height: 120px;
+  }
+  
+  /*change la couleur au survol des cases*/
+  #main a:hover{
+          opacity: 0.9;
+  }
+  
+  /*message d'erreur ou de succès*/
+  .error_info_message{
+          background-color: red;
+  }
+  .success_info_message{
+          background-color: green;
+  }
+  
+  
+  /*page GALLERY*/
+  #gallery, #pic-detail {
+          color: white; /*pour test sur fond noir*/
+          margin-top: 70px;
+  }
+  
+  /*NAV*/
+  nav{
+          display:inline-block;
+          float: left;        
+  }
+  
+  nav ul {
+          display:inline-block;
+          margin: 0 70px;
+  }
+  
+  nav ul li{
+          list-style-type: none;
+  }
+  
+  nav ul li a{
+          display:inline-block;
+          height:45px;
+          width:45px;
+          border: 2px solid white;
+          box-sizing: border-box;
+  }
+  nav ul li a[style="background-color:#ebebeb;"]{
+          height:42px;
+          width:42px;
+          margin: 4px;
+          -webkit-box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
+          -moz-box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
+          box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
+  }
+  nav ul li:first-child a{
+          border: none;
+          margin-bottom: 15px;
+  }
+  
+  /*CADRE D'AFFICHAGE DES MINI PHOTOS*/
+  #cadre{
+        position: relative;
+          float: left;
+          width:514px;
+          box-sizing: border-box;
+          border: 2px solid #ebebeb;
+  }
+  
+  #cadre.white{
+          width:506px;
+          margin: 4px;
+          -webkit-box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
+          -moz-box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
+          box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
+  }
+  
+  #cadre > div{
+          float: left;
+  }
+  
+  #cadre #hautg, #cadre #hautd, #cadre #bas {
+          height:50px;
+          width:50px;
+          box-sizing: border-box;
+  }
+  #cadre.white #hautg, #cadre.white #hautd, #cadre.white #bas {
+          height:42px;
+          width:42px;
+  }
+  
+  /*#cadre #hautd[style="background-color:#ebebeb;"]{
+          border: 2px solid #000000;
+  }*/
+  
+  #cadre #hautg{
+          width:460px;
+  }
+  #cadre.white #hautg{
+          width:460px;
+  }
+  #cadre #bas {
+          width:510px;
+  }
+  #cadre.white #bas {
+          width:502px;
+  }
+  #cadre #hautg {
+          border-right:2px solid #ebebeb;
+  }
+  #cadre.white #hautg {
+          border-right:2px solid #000000;
+  }
+  
+  #cadre #gauche, #cadre #droit {
+          height:393px;
+          width:50px;
+          box-sizing: border-box;
+  }
+  #cadre.white #gauche, #cadre.white #droit {
+          height:401px;
+          width:42px;
+  }
+  #cadre #droit {
+          border-top:2px solid #ebebeb;
+  }
+  #cadre.white #droit {
+          border-top:2px solid #000000;
+  }
+  
+  #cadre #gallery_mini {
+          height:393px;
+          width:410px;
+          border: 2px solid white;
+          box-sizing: border-box;
+  }
+  #cadre.white #gallery_mini {
+          width:410px;
+          height:393px;
+          margin: 4px;
+          -webkit-box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
+          -moz-box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
+          box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
+  }
+  
+  #cadre #gallery_mini > p {
+          display: inline-block;
+          height:13.2%;
+          width:25%;
+          text-align: center;
+  }
+  #cadre #gallery_mini > p img {
+          vertical-align: middle;
+          border: 1px solid #ebebeb;
+          transition: all .2s ease-in-out;
+  }
+  /*#cadre #gallery_mini > p img:hover {
+          -webkit-transform: scale(1.1);
+          -moz-transform: scale(1.1);
+          -ms-transform: scale(1.1);
+          -o-transform: scale(1.1);
+          transform: scale(1.1);
+          /*image-rendering: optimizeSpeed;
+          image-rendering: -moz-crisp-edges;
+          image-rendering: -o-crisp-edges;
+          image-rendering: -webkit-crisp-edges;
+          image-rendering: crisp-edges;
+          image-rendering: optimize-contrast;
+          -ms-interpolation-mode: nearest-neighbor;
+  }*/
+  
+    /*MEDIA QUERIES*/
+  
+  /* centrer le carré si ecran < 980px */
+  @media screen and (max-width:980px){
+          #main {
+                    margin: 70px auto 0;
+          }
+  }         
+  
+  /* transformer le carré si ecran < 600px */
+  @media screen and (max-width:600px){
+          #main {
+                    width: 300px;
+                    height: 620px;
+          }
+          
+          #main a, #main div{
+                    box-sizing: border-box;
+          }
+    
+          #main > a:first-child{
+                    width: 50%;
+                    height: 60px;
+          }
+  
+          #main > a:nth-child(3),
+          #main > a:nth-child(6),
+          #main > a:nth-child(7),
+          #main > a:nth-child(10),
+          #main div:nth-child(15){
+                    display: none;
+          }
+          
+          #main > a:nth-child(2){
+                    width: 50%;
+                    height: 60px;
+          }
+          
+          #main > div:nth-child(4){
+                    width: 20%;      
+          }
+          #main > div:nth-child(4) > a:first-child,
+          #main > div:nth-child(4) > a:nth-child(2),
+          #main > div:nth-child(4) > a:nth-child(3){
+                    width: 100%;      
+          }
+          
+          #main > a:nth-child(5){
+                    width: 80%;
+          }
+          
+          #main > a:nth-child(8){
+                    width: 40%;
+                    float: right;
+          }
+          
+          #main > div:nth-child(9){
+                    width: 40%;
+          }
+          
+          #main div:nth-child(9) a:first-child,
+          #main div:nth-child(9) a:nth-child(2){
+                    width: 100%;
+          }
+          
+           #main > a:nth-child(11){
+                    width: 40%;
+                    height: 55px;
+          }
+          
+          #main div:nth-child(12){
+                    width: 40%;      
+          }
+          
+          #main div:nth-child(12) a:first-child,
+          #main div:nth-child(12) a:nth-child(2){
+                    width: 100%;      
+          }
+  
+          #main div:nth-child(12) a:nth-child(2){
+                    height: 40px;      
+          }
+          
+          #main > a:nth-child(13){
+                    width: 60%;
+          }
+          
+          #main div:nth-child(14){
+                    width: 100%; 
+                    /*box-sizing: border-box;*/
+                    height: 25px;
+          }
+  }
+  
+  /*réduire les margin-top si ecran < 360px*/
+  @media screen and (max-width:360px){
+          #main {
+                    margin: 10px auto 0;
+          }
+  }

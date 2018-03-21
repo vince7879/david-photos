@@ -1,0 +1,27 @@
+<!-- <head>
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+</head> -->
+<div class="panel panel-default">
+  {{msgError}}
+  <div class="panel-heading">
+    <h3 class="panel-title">Sign in</h3>
+  </div>
+  <div class="panel-body">
+    <form accept-charset="UTF-8" role="form">
+      <fieldset>
+        <div class="form-group">
+          <input class="form-control" placeholder="Login" name="login" type="text" [(ngModel)]="login">
+        </div>
+        <div class="form-group">
+          <input class="form-control" placeholder="Password" name="password" type="password" [(ngModel)]="pwd">
+        </div>
+        <div class="checkbox">
+          <label>
+            <input name="remember" type="checkbox" value="Remember Me"> Remember Me
+          </label>
+        </div>
+        <div (click)="submit()" class="btn btn-lg btn-success btn-block" type="submit">Access</div>
+      </fieldset>
+    </form>
+  </div>
+</div>
