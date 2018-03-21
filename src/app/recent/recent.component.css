@@ -1,0 +1,109 @@
+#cadre li { display: inline; } 
+
+nav ul li:first-child a {
+    margin-bottom: 0;
+}
+
+nav ul li a {
+    width: 47px;
+    height: 47px;
+}
+
+nav > ul > li > a.white {
+    height: 39px;
+    width: 39px;
+    box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
+    margin-left: 4px;
+    margin-bottom: 4px;
+    margin-top: 4px;
+}
+
+#gallery > nav > ul > li > a.black-white {
+    /* background: repeating-linear-gradient( 45deg, #000000, #000000 16.666%, #ebebeb 16.666%, #ebebeb 33.334% ); */
+    background: repeating-linear-gradient( 45deg, #000000, #000000 5%, #ebebeb 6%, #ebebeb 10% );
+}
+
+#cadre, #gallery_mini, #droit {
+    border: none!important;
+}
+
+#hautd > a > img {
+    padding-left: 2px;
+}
+
+#cadre #gauche {
+    height:458px;
+    width:51px;
+    box-sizing: border-box;
+}
+
+#cadre #gallery_mini {
+    height:408px;
+    width:409px;
+    box-sizing: border-box;
+}
+
+#cadre #droit {
+    height:407px;
+    width:51px;
+    box-sizing: border-box;
+    padding-top: 3px;
+}
+
+#cadre #bas {
+    float: right;
+    height:51px;
+    width:463px;
+    box-sizing: border-box;
+}
+
+#thumbnailsList {
+    margin: 10px 0 0 0;
+    padding-left: 7px;
+}
+
+#thumbnailsList .square {
+    height: 75px;
+    width: 75px;
+    padding: 0 10px 18px 10px;
+}
+
+#thumbnailsList li:nth-child(1) .square,
+#thumbnailsList li:nth-child(2) .square,
+#thumbnailsList li:nth-child(3) .square,
+#thumbnailsList li:nth-child(4) .square
+{
+    padding: 18px 10px;
+}
+
+#thumbnailsList .landscape {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#thumbnailsList .portrait {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+#thumbnailsList .square img {
+    max-width: 100%;
+    max-height: 100%;
+    border: none;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid white;
+    transition: transform 0.5s ease;
+}
+
+#thumbnailsList .square img:hover {
+    -moz-transform: scale(1.4); 
+    -webkit-transform: scale(1.4); 
+    -o-transform: scale(1.4); 
+    transform: scale(1.4); 
+}
+
+#preview {
+    position:absolute;
+    border:1px solid #ccc;
+}

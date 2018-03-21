@@ -1,0 +1,47 @@
+<div class="ui-g ui-g-nopad">
+    <div class="ui-g-12 ui-md-2 ui-g-nopad">
+        <ul>
+            <li>
+                <a routerLink="/">
+                <img src="assets/img/menusmall.jpg" width="45" height="45">
+                </a>
+            </li>
+            <li>
+                <a routerLink="/david">Add picture</a>
+            </li>
+            <div *ngIf="!newPage">
+                <li *ngFor="let c of color_collection">
+                    <a [routerLink]="['/backend', { color: c.name }]" class="{{c.name}}" [ngStyle]="{'background-color':c.hexacode}">{{c.name}}</a>
+                </li>
+            </div>
+        </ul>
+    </div>
+    <div *ngIf="newPage" class="ui-g-12 ui-md-10 ui-g-nopad">
+        <h2>Choose a color to edit</h2> 
+        <li *ngFor="let c of color_collection">
+                <a [routerLink]="['/backend', { color: c.name }]" class="{{c.name}}" [ngStyle]="{'background-color':c.hexacode}">{{c.name}}</a>
+              </li>
+    </div>
+    <div *ngIf="!newPage" class="ui-g-12 ui-md-10 ui-g-nopad">
+        <h2>Edit {{color}} order</h2>
+      <!-- <p-orderList [value]="picture_collection" filterBy="color_name" [responsive]="true" dragdrop="true" dragdropScope="picture_collection">
+          <ng-template let-pic pTemplate="item">
+              <div>
+                  <img src="{{baseUrl}}{{pic.thumb_name}}" style="display:inline-block;margin:2px 0 2px 2px" width="48">
+                  <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{pic.place}} - {{pic.year}} - {{pic.color_name}}</div>
+              </div>
+          </ng-template>
+      </p-orderList> -->
+      <ul class="thumbnailsList" [dragula]='"bag-one"' [dragulaModel]='picture_collection'>
+            <li *ngFor="let p of picture_collection" class="{{p.rank}}" id="{{p.id}}">
+            <div class="square {{p.orientation}}">
+                <!-- <a [routerLink]="['/david', p.color_name, p.id]" class="preview"> -->
+                <a [routerLink]="['/edit', p.color_name, p.id]" class="preview">
+                    <img appPreview src="{{baseUrl}}{{p.thumb_name}}" class="tn">
+                </a>
+            </div>
+            </li>  
+        </ul>
+        
+    </div>
+  </div>

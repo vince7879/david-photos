@@ -1,0 +1,40 @@
+<div id="wrapper">
+  <section id="main">
+            <a routerLink="/recent" class="white">
+                      <span>新鋭</span>
+            </a>
+            <a [routerLink]="['/gallery', { color: 'black', page: 1 }]" class="black"></a>
+            <a [routerLink]="['/gallery', { color: 'white', page: 1 }]" class="white"></a>
+            <div>
+                       <a [routerLink]="['/gallery', { color: 'brown', page: 1 }]" class="brown"></a> 
+                       <a [routerLink]="['/gallery', { color: 'white', page: 1 }]" class="white"></a> 
+                       <a [routerLink]="['/gallery', { color: 'yellow', page: 1 }]" class="yellow"></a> 
+            </div>
+            <a [routerLink]="['/gallery', { color: 'red', page: 1 }]" class="red"></a>
+            <a [routerLink]="['/gallery', { color: 'yellow', page: 1 }]" class="yellow"></a>
+            <a [routerLink]="['/gallery', { color: 'white', page: 1 }]" class="white"></a>
+            <a [routerLink]="['/gallery', { color: 'purple', page: 1 }]" class="purple"></a>
+            <div>
+                      <a [routerLink]="['/gallery', { color: 'black-white', page: 1 }]" class="black-white"></a>
+                      <a [routerLink]="['/gallery', { color: 'white', page: 1 }]" class="white"></a>
+            </div>
+            <a [routerLink]="['/gallery', { color: 'white', page: 1 }]" class="white"></a>
+            <a routerLink="/david" class="white">
+              <img src="assets/img/sign.png">
+            </a>
+            <div>
+                      <a [routerLink]="['/gallery', { color: 'green', page: 1 }]" class="green"></a>
+                      <a [routerLink]="['/gallery', { color: 'grey', page: 1 }]" class="grey"></a>
+            </div>
+            <a [routerLink]="['/gallery', { color: 'blue', page: 1 }]" class="blue"></a>
+            <div class="white">
+                      <span>&copy; 2010 DAVID PREAT</span>
+                      <span>Tous droits réservés</span>
+            </div>
+            <div>
+                      <a [routerLink]="['/gallery', { color: 'white', page: 1 }]" class="white"></a>
+                      <a [routerLink]="['/gallery', { color: 'red', page: 1 }]" class="red"></a>
+            </div>                                       
+
+  </section>
+</div>

@@ -1,0 +1,39 @@
+<div id="gallery">
+  <nav>
+    <ul>
+        <li *ngFor="let c of color_collection">
+            <!-- <a *ngIf="c.name != 'black-white'"[routerLink]="['/gallery', { color: c.name }]" class="{{c.name}}" [ngStyle]="{'background-color':c.hexacode}"></a>
+            <a *ngIf="c.name === 'black-white'" [routerLink]="['/gallery', { color: c.name }]" class="{{c.name}}" [ngStyle]="{'background':'repeating-linear-gradient( 45deg, #000000, #000000 16.666%, #ebebeb 16.666%, #ebebeb 33.334% )'}"></a> -->
+            <a [routerLink]="['/gallery', { color: c.name }]" class="{{c.name}}" [ngStyle]="{'background-color':c.hexacode}"></a>
+          </li>
+    </ul>
+  </nav>
+  <div id="cadre" class="{{color}}">       
+      <div id="hautg" [ngStyle]="{'background-color':hexacode}"><img src="assets/img/recent_hg.jpg"></div>
+      <div id="hautd" [ngStyle]="{'background-color':hexacode}">
+        <a routerLink="/">
+          <img src="assets/img/menusmall.jpg">
+        </a>
+      </div>
+      <div id="gauche" [ngStyle]="{'background-color':hexacode}"><img src="assets/img/recent_g.jpg"></div>
+     
+      <div id='gallery_mini' class=""> <!--zone d'affichage des phtos-->
+         <!--ici boucle d"affichage des 16 photos-->
+         <ul id="thumbnailsList">
+          <li *ngFor="let p of picture_collection">
+            <div class="square {{p.orientation}}">
+              <a [routerLink]="['/picture', p.color_name, p.id]" class="preview" title="{{p.name}}">
+                <img appPreview src="{{baseUrl}}{{p.thumb_name}}" class="tn">
+              </a>
+            </div>
+            
+          </li>  
+         </ul>
+        
+          
+      </div> <!-- fin zone d'affichage des photos -->
+      <!--fin boucle ici-->
+      <div id="droit" [ngStyle]="{'background-color':hexacode}"><img src="assets/img/recent_d.jpg"></div>
+      <div id="bas" [ngStyle]="{'background-color':hexacode}"><img src="assets/img/recent_b.jpg"></div>
+  </div> <!--fin cadre-->
+</div>
