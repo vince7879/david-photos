@@ -16,15 +16,17 @@ import {MyApiService} from '../my-api.service';
 })
 export class DavidComponent {
 
+  form: FormGroup;
   picture: File;
   formdata: FormData;
-  place: string = 'bolivie';
-  year: any = '2012';
-  month: string = 'janvier';
-  color: string = 'black-white';
+  place: string = 'argentine';
+  year: any = '2010';
+  month: string = 'mars';
+  color: string = 'grey';
   colors: any;
   message: string;
   fileContent: any;
+  submitted = false;
 
   constructor(private http: Http,
               private uploadService: UploadService,
@@ -42,16 +44,16 @@ export class DavidComponent {
 
   onChange(event: EventTarget) {
       let eventObj: MSInputMethodContext = <MSInputMethodContext> event;
-      // console.log(eventObj);
       let target: HTMLInputElement = <HTMLInputElement> eventObj.target;
-      // console.log(target);
       let files: FileList = target.files;
-      // console.log(files);
       this.picture = files[0];
-      // console.log(this.picture);
       let formData: FormData = new FormData();
       formData.append('uploadFile', this.picture, this.picture.name);
       this.formdata = formData;
+  }
+
+  onSubmit() {
+    this.submitted = true;
   }
 
   // traiter le fait qu'on puisse resoumettre ac les donnees corrigées qd il ya une erreur
@@ -62,9 +64,9 @@ export class DavidComponent {
     this.formdata.append('year', this.year);
     this.formdata.append('month', this.month);
     this.formdata.append('color', this.color);
-    
+
     this.uploadService.sendPicture(this.formdata).subscribe(data => {
-      // console.log(data);
+      console.log(data);
       if (data.status === 'success') {
         this.message = data.message;
       } else {

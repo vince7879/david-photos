@@ -2,3 +2,189 @@
     background-color: black;
     /* background-color: #ffffff; */
 }
+
+#main {
+    position: relative;
+}
+
+#main > a {
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+    border: solid 5px black;
+}
+
+/*couleurs des blocks*/
+#main .white{ background-color: #ebebeb; }
+#main .yellow{ background-color: #e5c55e; }
+#main .brown{ background-color: #3e1d0c; }
+#main .red{ background-color: #dc0a0b; }
+#main .purple{ background-color: #a3307d; }
+#main .black{ background-color: #000000; }
+#main .green{ background-color: #267c3f; }
+#main .grey{ background-color: #6f787d; }
+#main .blue{ background-color: #0e104d; }
+#main .black-white {
+      background: repeating-linear-gradient(
+      45deg,
+      #000000,
+      /* #000000 16.66%,
+      #ebebeb 16.66%,
+      #ebebeb 33.33% */
+      /* #000000 1.5%,
+      #ebebeb 2%,
+      #ebebeb 3% */
+      /* #000000 1.5%,
+      #ebebeb 2.5%,
+      #ebebeb 3.5% */
+      #000000 2%,
+      #ebebeb 2%,
+      #ebebeb 3.5%
+      );
+}
+
+ #top_white_recent {
+    height: 9.7%;
+    width: 22.6%;
+ }
+ #top_white_recent span{
+    display: inline-block;
+    color: black;
+    font-size: 25px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+  }
+ #top_black {
+    left: 22.6%;
+    height: 9.7%;
+    width: 38.7%;
+ }
+ #top_white {
+    left: 61.4%;
+    height: 9.7%;
+    width: 32.4%;
+ }
+ #left_brown{
+    top: 9.7%;
+    height: 25.8%;
+    width: 9.9%;
+ }
+ #left_white{
+    top: 35.5%;
+    height: 39.5%;
+    width: 9.9%;
+ }
+ #left_yellow{
+    top: 75%;
+    height: 25%;
+    width: 9.9%;
+ }
+ #big_red {
+     top: 9.7%;
+     left: 9.9%;
+     width: 51.4%;
+     height: 51.9%;
+ }
+ #big_yellow {
+    top: 9.7%;
+    left: 61.3%;
+    width: 32.5%;
+    height: 25.8%;
+ }
+ #great_white {
+     top: 35.5%;
+     left: 61.3%;
+     width: 16.25%;
+     height: 26.1%;
+ }
+ #great_purple {
+     top: 35.5%;
+     left: 77.55%;
+     width: 16.25%;
+     height: 26.1%;
+ }
+ #square_black_white {
+     top: 61.5%;
+     left: 9.9%;
+     width: 27.3%;
+     height: 26%;
+ }
+ #center_white {
+    top: 61.6%;
+    left: 37.4%;
+    height: 13.5%;
+    width: 24%;
+ }
+ #center_green {
+    top: 75.1%;
+    left: 37.4%;
+    height: 12.4%;
+    width: 24%;
+ }
+ #david_sign {
+    top: 61.6%;
+    left: 61.3%;
+    height: 13.5%;
+    width: 32.5%;
+ }
+ #david_sign > img {
+     width: 90%;
+     margin-left: 5%;
+    margin-top: 12px;
+ }
+ #big_blue {
+    top: 75.1%;
+    left: 61.3%;
+    width: 32.5%;
+    height: 20.2%;
+ }
+ #bottom_grey {
+    top: 87.5%;
+    left: 37.4%;
+    height: 7.7%;
+    width: 24%;
+ }
+ #bottom_great_white {
+    bottom: 0;
+    left: 9.9%;
+    width: 27.4%;
+    height: 12.4%;
+ }
+ #bottom_long_white {
+    bottom: 0;
+    left: 37.4%;
+    width: 56.5%;
+    height: 4.8%;
+ }
+ #bottom_long_white > div {
+     position: relative;
+ }
+ #bottom_long_white > div > span {
+     color: black;
+     font-size: 0.6em;
+     position: absolute;
+     margin-top: 1px;
+     left: 3px;
+ }
+ #bottom_long_white > div > span:nth-child(2) {
+    left: unset;
+    right: 3px;
+}
+ #right_white {
+    right: 0;
+    top: 0;
+    height: 75%;
+    width: 6.2%;
+ }
+ #right_red {
+    right: 0;
+    bottom: 0;
+    height: 25%;
+    width: 6.2%;
+ }
+
+ /*change la couleur au survol des cases*/
+ #main a:hover{
+    opacity: 0.9;
+}

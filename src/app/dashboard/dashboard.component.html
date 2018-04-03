@@ -1,6 +1,35 @@
 <div id="wrapper">
   <section id="main">
-            <a routerLink="/recent" class="white">
+    <a id="top_white_recent" routerLink="/recent" class="white">
+      <span>新鋭</span>
+    </a>
+    <a id="top_black" [routerLink]="['/gallery', { color: 'black', page: 1 }]" class="black"></a>
+    <a id="top_white" [routerLink]="['/gallery', { color: 'white', page: 1 }]" class="white"></a>
+    <a id="left_brown" [routerLink]="['/gallery', { color: 'brown', page: 1 }]" class="brown"></a>
+    <a id="left_white" [routerLink]="['/gallery', { color: 'white', page: 1 }]" class="white"></a>
+    <a id="left_yellow" [routerLink]="['/gallery', { color: 'yellow', page: 1 }]" class="yellow"></a>
+    <a id="big_red" [routerLink]="['/gallery', { color: 'red', page: 1 }]" class="red"></a>
+    <a id="big_yellow" [routerLink]="['/gallery', { color: 'yellow', page: 1 }]" class="yellow"></a>
+    <a id="great_white" [routerLink]="['/gallery', { color: 'white', page: 1 }]" class="white"></a>
+    <a id="great_purple" [routerLink]="['/gallery', { color: 'purple', page: 1 }]" class="purple"></a>
+    <a id="square_black_white" [routerLink]="['/gallery', { color: 'black-white', page: 1 }]" class="black-white"></a>
+    <a id="center_white" [routerLink]="['/gallery', { color: 'white', page: 1 }]" class="white"></a>
+    <a id="center_green" [routerLink]="['/gallery', { color: 'green', page: 1 }]" class="green"></a>
+    <a id="david_sign" routerLink="/david" class="white">
+      <img src="assets/img/sign.png">
+    </a>
+    <a id="big_blue" [routerLink]="['/gallery', { color: 'blue', page: 1 }]" class="blue"></a>
+    <a id="bottom_grey" [routerLink]="['/gallery', { color: 'grey', page: 1 }]" class="grey"></a>
+    <a id="bottom_great_white" [routerLink]="['/gallery', { color: 'white', page: 1 }]" class="white"></a>
+    <a id="bottom_long_white" class="white">
+      <div>
+        <span>&copy; 2010 DAVID PREAT</span>
+      <span>Tous droits réservés</span>
+      </div>
+    </a>
+    <a id="right_white" [routerLink]="['/gallery', { color: 'white', page: 1 }]" class="white"></a>
+    <a id="right_red" [routerLink]="['/gallery', { color: 'red', page: 1 }]" class="red"></a>
+            <!-- <a routerLink="/recent" class="white">
                       <span>新鋭</span>
             </a>
             <a [routerLink]="['/gallery', { color: 'black', page: 1 }]" class="black"></a>
@@ -34,7 +63,7 @@
             <div>
                       <a [routerLink]="['/gallery', { color: 'white', page: 1 }]" class="white"></a>
                       <a [routerLink]="['/gallery', { color: 'red', page: 1 }]" class="red"></a>
-            </div>                                       
+            </div>                                        -->
 
   </section>
 </div>

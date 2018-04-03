@@ -9,11 +9,11 @@ export class LoggedInGuardService implements CanActivate {
 
     canActivate() {
         if (this.loginService.IsLogged()) {
-            console.log('true');
+            // console.log('true');
             return true;
         } else {
             this.router.navigate(['login']);
-            console.log('false');
+            // console.log('false');
             return false;
         }
     }

@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css">
 </head> -->
 
-<div class="ui-g ui-g-nopad">
+<div class="container ui-g ui-g-nopad">
     <div class="ui-g-12 ui-md-2 ui-g-nopad">
         <ul>
             <li>
@@ -13,62 +13,71 @@
             <li>
                 <a routerLink="/backend">Backend</a>
             </li>
+            <li [hidden]="!submitted">
+                <button (click)="pictureForm.reset(); submitted=false">Add a picture</button>
+            </li>
         </ul>
     </div>
     <div class="ui-g-12 ui-md-6 ui-g-nopad">
-        <h1>Add a picture</h1>
-        <form (ngSubmit)="onSubmit()" #pictureForm="ngForm">
+        <div [hidden]="submitted">
+            <h1>ADD A PICTURE</h1>
+            <form (ngSubmit)="onSubmit()" #pictureForm="ngForm">
 
-            <div class="form-group">
-                <label class="control-label col-sm-4" for="place">Place<span class="asterisk">*</span></label>
-                <input type="text" class="form-control" id="place" required [(ngModel)]="place" name="place" #placeName="ngModel">
-                <div [hidden]="placeName.valid || placeName.pristine" class="alert alert-danger">Place is required</div>                       
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-4" for="year">Year<span class="asterisk">*</span></label>
-                <input type="text" class="form-control" id="year" minlength="4" maxlength="4" required [(ngModel)]="year" name="year" #picYear="ngModel">
-                <div [hidden]="picYear.valid || picYear.pristine" class="alert alert-danger">Year is required</div>              
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-4" for="month">Month<span class="asterisk">*</span></label>
-                <select name="month" class="form-control" id="month" required [(ngModel)]="month" #picMonth="ngModel">
-                    <option value="">---</option>
-                    <option value="janvier">janvier</option>
-                    <option value="fevrier">février</option>
-                    <option value="mars">mars</option>
-                    <option value="avril">avril</option>
-                    <option value="mai">mai</option>
-                    <option value="juin">juin</option>
-                    <option value="juillet">juillet</option>
-                    <option value="aout">août</option>
-                    <option value="septembre">septembre</option>
-                    <option value="octobre">octobre</option>
-                    <option value="novembre">novembre</option>
-                    <option value="decembre">décembre</option>
-                </select>
-                <div [hidden]="picMonth.pristine || picMonth.value != ''" class="alert alert-danger">Month is required</div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-4" for="color">Color<span class="asterisk">*</span></label>
-                <!-- <input type="text" class="form-control" id="color" [(ngModel)]="color" name="color" required>       -->
-                <select name="color" class="form-control" id="color" required [(ngModel)]="color" #picColor="ngModel">
-                    <option value="">---</option>
-                    <option *ngFor="let col of colors" [value]="col.name">{{col.name}}</option>
-                </select>
-                <div [hidden]="picColor.pristine || picColor.value != ''" class="alert alert-danger">A color is required</div>
-            </div>
-            <div class="form-group upload">
-                <label class="control-label col-sm-4" for="picture">Photo<span class="asterisk">*</span></label>
-                <input type="file" id="picture" requireFile [(ngModel)]="picture" name="picture" (change)="onChange($event)" #picFile="ngModel">
-                <p *ngIf="!picFile.valid" style="color: red">This field is required!</p>
-            </div>        
-        
-            <div class="form-group">        
-                <div class="text-center">
-                    <button type="submit" class="btn btn-success" [disabled]="!pictureForm.form.valid" (click)="addPic(); pictureForm.reset()">Enregistrer la photo</button>             
+                <div class="ui-g-12 ui-md-12">
+                    <label class="ui-g-4 ui-md-4 ui-lg-3" for="place">PLACE</label>
+                    <input type="text" class="ui-g-8 ui-md-8 ui-lg-5" id="place" required [(ngModel)]="place" name="place" #placeName="ngModel">
+                    <div [hidden]="placeName.valid || placeName.pristine" class="alert alert-danger">Place is required</div>                       
                 </div>
-            </div>
-        {{message}}
-        </form>
+                <div class="ui-g-12 ui-md-12">
+                    <label class="ui-g-4 ui-md-4 ui-lg-3" for="year">YEAR</label>
+                    <input type="text" class="ui-g-8 ui-md-8 ui-lg-5" id="year" minlength="4" maxlength="4" required [(ngModel)]="year" name="year" #picYear="ngModel">
+                    <div [hidden]="picYear.valid || picYear.pristine" class="alert alert-danger">Year is required</div>              
+                </div>
+                <div class="ui-g-12 ui-md-12">
+                    <label class="ui-g-4 ui-md-4 ui-lg-3" for="month">MONTH</label>
+                    <select name="month" class="ui-g-8 ui-md-8 ui-lg-5" id="month" required [(ngModel)]="month" #picMonth="ngModel">
+                        <option value="">---</option>
+                        <option value="janvier">janvier</option>
+                        <option value="fevrier">février</option>
+                        <option value="mars">mars</option>
+                        <option value="avril">avril</option>
+                        <option value="mai">mai</option>
+                        <option value="juin">juin</option>
+                        <option value="juillet">juillet</option>
+                        <option value="aout">août</option>
+                        <option value="septembre">septembre</option>
+                        <option value="octobre">octobre</option>
+                        <option value="novembre">novembre</option>
+                        <option value="decembre">décembre</option>
+                    </select>
+                    <div [hidden]="picMonth.pristine || picMonth.value != ''" class="alert alert-danger">Month is required</div>
+                </div>
+                <div class="ui-g-12 ui-md-12">
+                    <label class="ui-g-4 ui-md-4 ui-lg-3" for="color">COLOR</label>
+                    <!-- <input type="text" class="ui-g-8 ui-md-8 ui-lg-5" id="color" [(ngModel)]="color" name="color" required>       -->
+                    <select name="color" class="ui-g-8 ui-md-8 ui-lg-5" id="color" required [(ngModel)]="color" #picColor="ngModel">
+                        <option value="">---</option>
+                        <option *ngFor="let col of colors" [value]="col.name">{{col.name}}</option>
+                    </select>
+                    <div [hidden]="picColor.pristine || picColor.value != ''" class="alert alert-danger">A color is required</div>
+                </div>
+                <div class="ui-g-12 ui-md-12 upload">
+                    <label class="ui-g-4 ui-md-4 ui-lg-3" for="picture">PHOTO</label>
+                    <input class="btn ui-g-8 ui-md-8 ui-lg-5" type="file" id="picture" requireFile [(ngModel)]="picture" name="picture" (change)="onChange($event)" #picFile="ngModel">
+                    <!-- <div *ngIf="!picFile.valid" style="color: red">A photo is required!</div> -->
+                    <div [hidden]="picFile.pristine || picFile.valid" style="color: red">A photo is required!</div>
+                </div>        
+            
+                <div class="ui-g-12 ui-md-12">        
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-success" [disabled]="!pictureForm.form.valid" (click)="addPic()">Enregistrer la photo</button>             
+                    </div>
+                </div>
+            
+            </form>
+        </div>
+        <div [hidden]="!submitted">
+            {{message}}
+        </div>
     </div>
 </div>
