@@ -27,7 +27,7 @@ body{
   
   
   /*page GALLERY*/
-  #gallery, #pic-detail {
+  #gallery {
           color: white; /*pour test sur fond noir*/
           margin-top: 70px;
   }
@@ -181,7 +181,7 @@ body{
     /*MEDIA QUERIES*/
   
   /* centrer le carré si ecran < 980px */
-  @media screen and (max-width:980px){
+  @media screen and (max-width:1024px){
           #main {
                     margin: 70px auto 0;
           }

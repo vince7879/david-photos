@@ -1,38 +1,5 @@
-<!-- <div id="pic-detail">
-  <nav>
-    <ul>
-        <li>
-          <a routerLink="/">
-            <img src="assets/img/accueil.jpg" width="50" height="50">
-          </a>
-        </li>
-        <li>
-            <a [routerLink]="['/gallery', { color: color }]" class="{{color}}" [ngStyle]="{'background-color':hexacode}"></a>
-          
-      </li>
-    </ul>
-  </nav>
-  <div class="row">
-    <div class="col-md-12"> -->
-
-      <!-- <div [ngStyle]="{'background-image':'url('+ baseUrl ++ picture.file_name +')'}" class="img-container {{picture.orientation}}"> -->
-        <!-- <img src="{{baseUrl}}{{picture.file_name}}">
-        <span id="caption">{{picture.place}}, {{picture.month}} {{picture.year}}</span> -->
-      <!-- </div> -->
-    
-    <!-- </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12" class="caption-row"> -->
-
-      <!-- <span id="caption">{{picture.place}}, {{picture.month}} {{picture.year}}</span> -->
-    
-    <!-- </div>
-  </div> 
-</div> -->
-
 <div id="pic-detail" class="ui-g ui-g-nopad">
-    <div class="ui-g-12 ui-md-2 ui-g-nopad">
+    <div id="nav" class="ui-g-12 ui-md-2 ui-g-nopad">
         <ul>
             <li>
               <a routerLink="/">
@@ -40,12 +7,12 @@
               </a>
             </li>
             <li>
-                <a [routerLink]="['/gallery', { color: color }]" class="{{color}}" [ngStyle]="{'background-color':hexacode}"></a>
+                <a [routerLink]="['/gallery', { color: color, page: 1 }]" class="{{color}}" [ngStyle]="{'background-color':hexacode}"></a>
               
           </li>
         </ul>
     </div>
-    <div class="ui-g-12 ui-md-10 ui-g-nopad {{picture.orientation}}">
+    <div id="pic" class="ui-g-12 ui-md-6 ui-g-nopad {{picture.orientation}}">
         <img src="{{baseUrl}}{{picture.file_name}}" class="double-border">
         <div id="caption">{{picture.place}}, {{picture.month}} {{picture.year}}</div>
     </div>
