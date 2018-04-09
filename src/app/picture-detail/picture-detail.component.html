@@ -11,6 +11,19 @@
               
           </li>
         </ul>
+        <ul>
+          <li>
+            <button *ngIf="picNb > 1 && (rank != picNb)" id="next_pic" (click)="findNextPic()">
+              &#8594;
+            </button>
+          </li>
+          <li>
+              <button *ngIf="picNb > 1 && (rank != 1)" id="prev_pic" (click)="findPrevPic()">
+                &#8592;
+              </button>
+            
+        </li>
+      </ul>
     </div>
     <div id="pic" class="ui-g-12 ui-md-6 ui-g-nopad {{picture.orientation}}">
         <img src="{{baseUrl}}{{picture.file_name}}" class="double-border">

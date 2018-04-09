@@ -78,6 +78,14 @@ export class MyApiService {
       return this.http.get(this.baseUrl + 'pictures/' + id, this.getHeader());
   }
 
+  getPictureIdByColorAndRank(color, rank): Observable <Response> {
+      return this.http.get(this.baseUrl + 'pictures/details?color=' + color + '&rank=' + rank);
+  }
+
+  getPicNbByColor(color): Observable <Response> {
+    return this.http.get(this.baseUrl + 'pictures/rank?color=' + color);
+}
+
   PicturesToEdit(color): Observable <Response> {
       return this.http.get(this.baseUrl + 'pictures/edit?color=' + color, this.getHeader());
   }
