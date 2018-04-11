@@ -13,16 +13,15 @@
         </ul>
         <ul>
           <li>
-            <button *ngIf="picNb > 1 && (rank != picNb)" id="next_pic" (click)="findNextPic()">
-              &#8594;
-            </button>
+              <button [disabled]="picNb === 1 || rank === 1" [ngClass]="picNb > 1 && (rank != 1) ? 'allowed':'not-allowed'" class="{{color}}" id="prev_pic" (click)="findPrevPic()" [ngStyle]="{'background-color':hexacode}">
+                <img src="assets/img/left-arrow-{{arrowColor}}.png">
+              </button>
           </li>
           <li>
-              <button *ngIf="picNb > 1 && (rank != 1)" id="prev_pic" (click)="findPrevPic()">
-                &#8592;
-              </button>
-            
-        </li>
+            <button [disabled]="picNb === 1 || (rank === picNb)" [ngClass]="picNb > 1 && (rank != picNb) ? 'allowed':'not-allowed'" class="{{color}}" id="next_pic" (click)="findNextPic()" [ngStyle]="{'background-color':hexacode}">
+              <img src="assets/img/right-arrow-{{arrowColor}}.png">
+            </button>
+          </li>
       </ul>
     </div>
     <div id="pic" class="ui-g-12 ui-md-6 ui-g-nopad {{picture.orientation}}">

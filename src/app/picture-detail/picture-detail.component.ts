@@ -19,10 +19,14 @@ export class PictureDetailComponent implements OnInit, DoCheck {
   picId: number;
   oldPicId: number;
   picNb: number;
+  arrowColor = 'white';
 
   constructor(private activatedRoute: ActivatedRoute, private myApiService: MyApiService) {
     this.picId = this.activatedRoute.snapshot.params['id'];
     this.color = this.activatedRoute.snapshot.params['color'];
+    if (this.color === 'white' || this.color === 'black-white') {
+      this.arrowColor = 'black';
+    }
    }
 
   ngOnInit() {
