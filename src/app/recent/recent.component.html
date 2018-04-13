@@ -4,7 +4,7 @@
         <li *ngFor="let c of color_collection">
             <!-- <a *ngIf="c.name != 'black-white'"[routerLink]="['/gallery', { color: c.name }]" class="{{c.name}}" [ngStyle]="{'background-color':c.hexacode}"></a>
             <a *ngIf="c.name === 'black-white'" [routerLink]="['/gallery', { color: c.name }]" class="{{c.name}}" [ngStyle]="{'background':'repeating-linear-gradient( 45deg, #000000, #000000 16.666%, #ebebeb 16.666%, #ebebeb 33.334% )'}"></a> -->
-            <a [routerLink]="['/gallery', { color: c.name }]" class="{{c.name}}" [ngStyle]="{'background-color':c.hexacode}"></a>
+            <a [routerLink]="['/gallery', { color: c.name, page: 1 }]" class="{{c.name}}" [ngStyle]="{'background-color':c.hexacode}"></a>
           </li>
     </ul>
   </nav>

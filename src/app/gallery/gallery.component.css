@@ -1,44 +1,3 @@
-#cadre li { display: inline; } 
-
-#page {
-    float: none;
-    position: absolute;
-    right: 18px;
-    top: 10px;
-}
-
-#cadre.white #page {
-    right: 14px;
-    top: 6px;
-}
-
-#cadre.black-white #page {
-    right: 0;
-}
-
-#cadre #page a {
-    color: #ebebeb;
-    text-decoration: none;
-    font-family: cursive;
-    font-size: 1.5em;
-}
-#cadre #page a#page_1 {
-    padding-right: 1px;
-}
-#cadre.yellow #page a,
-#cadre.white #page a {
-    color: #000000;
-}
-
-#cadre.black-white #page a#page_2 {
-    background-color: black;
-    padding: 10px 17px 7px;
-}
-#cadre.black-white #page a#page_1 {
-    background-color: black;
-    padding: 10px 20px 7px 18px;
-}
-
 #gallery > nav > ul > li > a.white {
     height: 37px;
     width: 37px;
@@ -48,15 +7,147 @@
     margin-top: 4px;
 }
 
-#gallery > nav > ul > li > a.black-white {
+#gallery > nav > ul > li > a.black-white { 
     /* background: repeating-linear-gradient( 45deg, #000000, #000000 16.666%, #ebebeb 16.666%, #ebebeb 33.334% ); */
-    background: repeating-linear-gradient( 45deg, #000000, #000000 5%, #ebebeb 5%, #ebebeb 10% );
+     background: repeating-linear-gradient( 45deg, #000000, #000000 5%, #ebebeb 5%, #ebebeb 10% );
 }
 
-.tn {
-
+#gallery_cadre {
+    position: relative;
+    float: left;
+    width: 514px;
+    height: 504px;
+    border: 2px solid #ebebeb;
+    box-sizing: border-box;
 }
 
+#gallery_cadre.white{
+    width: 506px;
+    height: 496px;
+    -webkit-box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
+    -moz-box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
+    box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
+    margin: 4px 0 0 4px;
+}
+/* parametre de cadre hachuré de la gallerie noir et blanc */
+#gallery_cadre.black-white {
+    background: repeating-linear-gradient( 45deg, #ebebeb, #ebebeb 0.3%, #000000 0.5%, #000000 0.9% );
+}
+
+#gallery_cadre > #thumbnailsList {
+    width:410px;
+    height:400px;
+    background-color: black;
+    position:absolute;
+    left:50px; 
+    right:50px;
+    top:50px; 
+    bottom:50px;
+    border: 2px solid #ebebeb;
+    box-sizing: border-box;
+    padding-top: 4px;
+}
+
+#gallery_cadre.white > #thumbnailsList{
+    -webkit-box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
+    -moz-box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
+    box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
+    left:46px; 
+    right:46px;
+    top:46px; 
+    bottom:46px;
+}
+
+#gallery_cadre > #thumbnailsList > div {
+    display: inline-block;
+    width: 25%;
+}
+
+#gallery_cadre > #thumbnailsList .square.portrait {
+    height: 77px;
+    /* width: 75px; */
+    padding: 8px 0;
+}
+#gallery_cadre > #thumbnailsList .square.landscape {
+    height: 58px;
+    /* width: 75px; */
+    padding: 15px 0;
+}
+
+#gallery_cadre > #thumbnailsList .square img {
+    box-sizing: border-box;
+    max-width: 100%;
+    max-height: 100%;
+    border: none;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid white;
+    transition: transform 0.5s ease;    
+}
+
+#gallery_cadre > #thumbnailsList .square img:hover {
+    -moz-transform: scale(1.3); 
+    -webkit-transform: scale(1.3); 
+    -o-transform: scale(1.3); 
+    transform: scale(1.3); 
+}
+
+/* #cadre li { display: inline; } */
+
+#gallery_cadre > #page {
+    position: absolute;
+    right: 0;
+    height: 50px;
+    width: 50px;
+    border-left: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+#gallery_cadre.white > #page {
+    right: 0px;
+    top: 0px;
+    height: 44px;
+    width: 44px;
+    border-color: #000000;
+}
+
+#gallery_cadre.black-white #page {
+    right: 0;
+}
+
+#gallery_cadre > #page a {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding-top: 8px;
+    color: #ebebeb;
+    text-decoration: none;
+    font-family: cursive;
+    font-size: 1.5em;
+}
+#gallery_cadre > #page a#page_1 {
+    padding-right: 1px;
+}
+#gallery_cadre.yellow #page a,
+#gallery_cadre.white #page a {
+    color: #000000;
+}
+#gallery_cadre.white > #page > a {
+    padding-top: 4px;
+    padding-left: 1px;
+}
+
+#gallery_cadre.black-white #page a#page_2 {
+    background-color: black;
+    padding: 8px 0px 9px;
+}
+#gallery_cadre.black-white #page a#page_1 {
+    background-color: black;
+    padding: 8px 0px 9px;
+}
+
+
+/*
 #thumbnailsList {
     margin: 0;
     padding-left: 7px;
@@ -106,20 +197,13 @@
 #preview {
     position:absolute;
     border:1px solid #ccc;
-}
-
-
-/* parametre de cadre hachuré de la gallerie noir et blanc */
-#cadre.black-white {
-    width: 514px;
-    height: 497px;
-    position: relative;
-    /* background: repeating-linear-gradient( 45deg, #ebebeb, #ebebeb 9%, #000000 9%, #000000 20.2% ); */
-    background: repeating-linear-gradient( 45deg, #ebebeb, #ebebeb 0.3%, #000000 0.5%, #000000 0.9% );
-}
+} */
 
 
 
+
+
+/*
 #gallery_mini.black-white {
     position: absolute;
   left: 50%;
@@ -127,4 +211,4 @@
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   background-color: #000000;
-}
+} */

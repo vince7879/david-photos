@@ -13,171 +13,55 @@ body{
     border: solid 2px #ffffff;
     /*margin: 0 auto;*/
     margin: 70px 0 0 230px;
-  }
+}
   
- /* ICI COPIE/COLLE MAIN CSS DS NOTEPAD */
+/* ICI COPIE/COLLE MAIN CSS DS NOTEPAD */
+
+/*message d'erreur ou de succès*/
+.error_info_message{
+        background-color: red;
+}
+.success_info_message{
+        background-color: green;
+}
   
-  /*message d'erreur ou de succès*/
-  .error_info_message{
-          background-color: red;
-  }
-  .success_info_message{
-          background-color: green;
-  }
   
+/*page GALLERY*/
+#gallery {
+        /*color: white; pour test sur fond noir*/
+        margin-top: 70px;
+}
+
+/*NAV*/
+nav{
+        float: left;        
+}
+
+nav ul {
+        display:inline-block;
+        margin: 0 72px;
+}
   
-  /*page GALLERY*/
-  #gallery {
-          color: white; /*pour test sur fond noir*/
-          margin-top: 70px;
-  }
-  
-  /*NAV*/
-  nav{
-          display:inline-block;
-          float: left;        
-  }
-  
-  nav ul {
-          display:inline-block;
-          margin: 0 70px;
-  }
-  
-  nav ul li{
-          list-style-type: none;
-  }
-  
-  nav ul li a{
-          display:inline-block;
-          height:45px;
-          width:45px;
-          border: 2px solid white;
-          box-sizing: border-box;
-  }
-  nav ul li a[style="background-color:#ebebeb;"]{
-          height:42px;
-          width:42px;
-          margin: 4px;
-          -webkit-box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
-          -moz-box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
-          box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
-  }
-  nav ul li:first-child a{
-          border: none;
-          margin-bottom: 15px;
-  }
-  
-  /*CADRE D'AFFICHAGE DES MINI PHOTOS*/
-  #cadre{
-        position: relative;
-          float: left;
-          width:514px;
-          box-sizing: border-box;
-          border: 2px solid #ebebeb;
-  }
-  
-  #cadre.white{
-          width:506px;
-          margin: 4px;
-          -webkit-box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
-          -moz-box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
-          box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
-  }
-  
-  #cadre > div{
-          float: left;
-  }
-  
-  #cadre #hautg, #cadre #hautd, #cadre #bas {
-          height:50px;
-          width:50px;
-          box-sizing: border-box;
-  }
-  #cadre.white #hautg, #cadre.white #hautd, #cadre.white #bas {
-          height:42px;
-          width:42px;
-  }
-  
-  /*#cadre #hautd[style="background-color:#ebebeb;"]{
-          border: 2px solid #000000;
-  }*/
-  
-  #cadre #hautg{
-          width:460px;
-  }
-  #cadre.white #hautg{
-          width:460px;
-  }
-  #cadre #bas {
-          width:510px;
-  }
-  #cadre.white #bas {
-          width:502px;
-  }
-  #cadre #hautg {
-          border-right:2px solid #ebebeb;
-  }
-  #cadre.white #hautg {
-          border-right:2px solid #000000;
-  }
-  
-  #cadre #gauche, #cadre #droit {
-          height:393px;
-          width:50px;
-          box-sizing: border-box;
-  }
-  #cadre.white #gauche, #cadre.white #droit {
-          height:401px;
-          width:42px;
-  }
-  #cadre #droit {
-          border-top:2px solid #ebebeb;
-  }
-  #cadre.white #droit {
-          border-top:2px solid #000000;
-  }
-  
-  #cadre #gallery_mini {
-          height:393px;
-          width:410px;
-          border: 2px solid white;
-          box-sizing: border-box;
-  }
-  #cadre.white #gallery_mini {
-          width:410px;
-          height:393px;
-          margin: 4px;
-          -webkit-box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
-          -moz-box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
-          box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
-  }
-  
-  #cadre #gallery_mini > p {
-          display: inline-block;
-          height:13.2%;
-          width:25%;
-          text-align: center;
-  }
-  #cadre #gallery_mini > p img {
-          vertical-align: middle;
-          border: 1px solid #ebebeb;
-          transition: all .2s ease-in-out;
-  }
-  /*#cadre #gallery_mini > p img:hover {
-          -webkit-transform: scale(1.1);
-          -moz-transform: scale(1.1);
-          -ms-transform: scale(1.1);
-          -o-transform: scale(1.1);
-          transform: scale(1.1);
-          /*image-rendering: optimizeSpeed;
-          image-rendering: -moz-crisp-edges;
-          image-rendering: -o-crisp-edges;
-          image-rendering: -webkit-crisp-edges;
-          image-rendering: crisp-edges;
-          image-rendering: optimize-contrast;
-          -ms-interpolation-mode: nearest-neighbor;
-  }*/
-  
-    /*MEDIA QUERIES*/
-  
-  /* ICI COPIE/COLLE MAIN CSS DS NOTEPAD */
+nav ul li{
+        list-style-type: none;
+}
+
+nav ul li a{
+        display:inline-block;
+        height:45px;
+        width:45px;
+        border: 2px solid white;
+        box-sizing: border-box;
+}
+nav ul li a[style="background-color:#ebebeb;"]{
+        height:42px;
+        width:42px;
+        margin: 4px;
+        -webkit-box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
+        -moz-box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
+        box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
+}
+nav ul li:first-child a{
+        border: none;
+        margin-bottom: 15px;
+}

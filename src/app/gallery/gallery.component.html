@@ -11,32 +11,19 @@
         </li>
     </ul>
   </nav>
-  <div id="cadre" class="{{color}}">       
-    <div *ngIf="color != 'black-white'" id="hautg" [ngStyle]="{'background-color':hexacode}"></div>
-
-    <div *ngIf="color != 'black-white'" id="hautd" [ngStyle]="{'background-color':hexacode}"></div>
-
-    <div id="page" *ngIf="pictures_count > 16">
-      <a *ngIf="page == 1" [routerLink]="['/gallery', { color: color, page: 2 }]" id="page_2">2</a>
-      <a *ngIf="page == 2" [routerLink]="['/gallery', { color: color, page: 1 }]" id="page_1">1</a>
+  <div id="gallery_cadre" class="{{color}}" [ngStyle]="{'background-color':hexacode}">
+      <div id="page" *ngIf="pictures_count > 16">
+          <a *ngIf="page == 1" [routerLink]="['/gallery', { color: color, page: 2 }]" id="page_2">2</a>
+          <a *ngIf="page == 2" [routerLink]="['/gallery', { color: color, page: 1 }]" id="page_1">1</a>
+        </div>
+    <div id="thumbnailsList">
+      <div *ngFor="let p of picture_collection">
+        <div class="square {{p.orientation}}">
+          <a [routerLink]="['/picture', p.color_name, p.id]" class="preview">
+            <img appPreview src="{{baseUrl}}{{p.thumb_name}}" class="tn">
+          </a>
+        </div>
+      </div>
     </div>
-
-    <div *ngIf="color != 'black-white'" id="gauche" [ngStyle]="{'background-color':hexacode}"></div>
-   
-    <div id='gallery_mini' class="{{color}}"> <!--zone d'affichage des phtos-->
-      <!--ici boucle d"affichage des 16 photos-->
-      <ul id="thumbnailsList">
-        <li *ngFor="let p of picture_collection">
-          <div class="square {{p.orientation}}">
-            <a [routerLink]="['/picture', p.color_name, p.id]" class="preview">
-              <img appPreview src="{{baseUrl}}{{p.thumb_name}}" class="tn">
-            </a>
-          </div>
-        </li>  
-      </ul>
-    </div> <!-- fin gallery_mini : zone d'affichage des 16 photos -->
-    
-    <div *ngIf="color != 'black-white'" id="droit" [ngStyle]="{'background-color':hexacode}"></div>
-    <div *ngIf="color != 'black-white'" id="bas" [ngStyle]="{'background-color':hexacode}"></div>
-</div> <!--fin cadre-->
-</div>
+  </div><!--fin cadre-->
+</div> <!--fin gallery-->
