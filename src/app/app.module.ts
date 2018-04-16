@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import {MatDialogModule} from '@angular/material';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LoginModule } from './login/login.module';
 import { AppComponent } from './app.component';
@@ -40,7 +43,8 @@ import { EditPictureComponent } from './edit-picture/edit-picture.component';
     PictureDetailComponent,
     RecentComponent,
     BackendComponent,
-    EditPictureComponent
+    EditPictureComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +53,9 @@ import { EditPictureComponent } from './edit-picture/edit-picture.component';
     FormsModule,
     LoginModule,
     OrderListModule,
-    DragulaModule
+    DragulaModule,
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
   providers: [
     MyApiService,
@@ -57,6 +63,7 @@ import { EditPictureComponent } from './edit-picture/edit-picture.component';
     LoginService,
     UploadService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ConfirmationDialogComponent]
 })
 export class AppModule { }

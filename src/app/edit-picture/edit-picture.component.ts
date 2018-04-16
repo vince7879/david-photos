@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
 import {MyApiService} from '../my-api.service';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-edit-picture',
@@ -16,11 +18,14 @@ export class EditPictureComponent implements OnInit {
   month: string;
   oldColor: string;
   newColor: string;
+  name: string;
   colors: any;
   details: any= {};
   message: string;
+  dialogRef: MatDialogRef<ConfirmationDialogComponent>;
+  picRemoved = false;
 
-  constructor(private activatedRoute: ActivatedRoute, private myApiService: MyApiService) {
+  constructor(private activatedRoute: ActivatedRoute, private myApiService: MyApiService, public dialog: MatDialog) {
     this.oldColor = this.activatedRoute.snapshot.params['color'];
    }
 
@@ -38,6 +43,7 @@ export class EditPictureComponent implements OnInit {
       this.year = this.picture.year;
       this.month = this.picture.month;
       this.newColor = this.picture.color_name;
+      this.name = this.picture.name;
     });
   }
 
@@ -64,13 +70,30 @@ export class EditPictureComponent implements OnInit {
     });
   }
 
-  removePic() {
-    this.details = {
-      'id': this.activatedRoute.snapshot.params['id'],
-      'oldColor': this.oldColor
-    };
-    this.myApiService.removePicture(this.details).subscribe(data => {
-      this.message = data.message;
+  deletePicture() {
+    this.dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      disableClose: true
+    });
+    this.dialogRef.componentInstance.confirmMessage = 'Are you sure you want to delete the picture ' + this.name + ' ?';
+
+    this.dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      if (result) {
+        this.details = {
+              'id': this.activatedRoute.snapshot.params['id'],
+              'color': this.oldColor,
+              'picName': this.name
+            };
+            this.myApiService.removePicture(this.details).subscribe(response => {
+              console.log(response);
+              this.message = response.message;
+              if (response.status === 'success') {
+                this.picRemoved = true;
+                console.log(this.picRemoved);
+              }
+            });
+      }
+      this.dialogRef = null;
     });
   }
 

@@ -15,7 +15,7 @@
           </li>
       </ul>
   </div>
-  <div class="ui-g-12 ui-md-10 ui-g-nopad">
+  <div [hidden]="picRemoved" class="ui-g-12 ui-md-10 ui-g-nopad">
       <h1>Edit picture</h1>
       <div class="ui-g-12 ui-md-4 ui-g-nopad {{picture.orientation}}">
         <img src="{{baseUrl}}{{picture.file_name}}" class="double-border">
@@ -66,10 +66,14 @@
                   <button type="submit" class="btn btn-success" [disabled]="!pictureForm.form.valid" (click)="modifyPic()">Enregistrer les modifications</button>             
               </div>
           </div>
-      {{message}}
+      
       </form>
       <div class="ui-g-12 ui-md-7 ui-md-offset-1 ui-g-nopad">
-        <button type="button" class="btn btn-danger" (click)="removePic()">Supprimer la photo</button>
+        <button type="button" class="btn btn-danger" (click)="deletePicture()">Supprimer la photo</button>
       </div>
-  </div>
+    </div>
+
+    <div [hidden]="!picRemoved">
+        {{message}}
+    </div>
 </div>
