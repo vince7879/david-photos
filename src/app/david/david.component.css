@@ -78,7 +78,16 @@ form > div > div.alert {
     filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 }
 
-form > div:nth-child(6) > div > button.btn[disabled] {
+form > div:nth-child(6) > button.btn[disabled] {
   cursor: not-allowed;
   opacity: 0.65;
+}
+
+img.preview {
+  height: 120px;
+  border: 1px solid #fff;
+  padding: 2px;
+  position: relative;
+  margin: 0 auto;
+  float: right;
 }

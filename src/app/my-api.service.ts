@@ -19,6 +19,8 @@ export class MyApiService {
     // this.baseUrl = 'http://192.168.1.87:3200/';
     //     connexion locale
     this.baseUrl = 'http://127.0.0.1:3000/';
+    //     connexion server
+    // this.baseUrl = 'http://api.vincentdelsalle.pro/';
     this.authToken = null;
    }
 

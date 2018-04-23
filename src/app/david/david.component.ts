@@ -9,6 +9,9 @@ import {UploadService} from './upload.service';
 import {LoginService} from '../login/login.service';
 import {MyApiService} from '../my-api.service';
 
+import { Ng2ImgMaxService } from 'ng2-img-max';
+import { DomSanitizer } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-david',
   templateUrl: './david.component.html',
@@ -18,6 +21,7 @@ export class DavidComponent {
 
   form: FormGroup;
   picture: File;
+  picturePreview: string;
   formdata: FormData;
   place: string = 'argentine';
   year: any = '2010';
@@ -31,7 +35,9 @@ export class DavidComponent {
   constructor(private http: Http,
               private uploadService: UploadService,
               private loginService: LoginService,
-              private myApiService: MyApiService) {
+              private myApiService: MyApiService,
+              private ng2ImgMax: Ng2ImgMaxService,
+              public sanitizer: DomSanitizer) {
                 this.getColors();
   }
 
@@ -43,13 +49,38 @@ export class DavidComponent {
   }
 
   onChange(event: EventTarget) {
-      let eventObj: MSInputMethodContext = <MSInputMethodContext> event;
-      let target: HTMLInputElement = <HTMLInputElement> eventObj.target;
-      let files: FileList = target.files;
-      this.picture = files[0];
-      let formData: FormData = new FormData();
-      formData.append('uploadFile', this.picture, this.picture.name);
-      this.formdata = formData;
+    let eventObj: MSInputMethodContext = <MSInputMethodContext> event;
+    let target: HTMLInputElement = <HTMLInputElement> eventObj.target;
+    let files: FileList = target.files;
+    let image = files[0];
+    this.ng2ImgMax.resizeImage(image, 500, 10000).subscribe(
+      result => {
+        this.picture = new File([result], result.name);
+        this.getImagePreview(this.picture);
+      },
+      error => {
+        console.log('😢 Oh no!', error);
+      }
+    );
+    this.ng2ImgMax.compressImage(image, 0.9).subscribe(
+      result => {
+        this.picture = new File([result], result.name);
+        let formData: FormData = new FormData();
+        formData.append('uploadFile', this.picture, this.picture.name);
+        this.formdata = formData;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  getImagePreview(file: File) {
+    const reader: FileReader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      this.picturePreview = reader.result;
+    };
   }
 
   onSubmit() {

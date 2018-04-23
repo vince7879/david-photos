@@ -49,7 +49,9 @@ const routes: Routes = [
       path: '',
       component: DashboardComponent,
   },
-  { path: '**', component: PageNotFoundComponent }
+  {path: '404', component: PageNotFoundComponent},
+  {path: '**', redirectTo: '/404'}
+//   { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
