@@ -20,13 +20,19 @@ export class PictureDetailComponent implements OnInit, DoCheck {
   oldPicId: number;
   picNb: number;
   arrowColor = 'white';
+  loaded = false;
 
-  constructor(private activatedRoute: ActivatedRoute, private myApiService: MyApiService) {
+  constructor(private activatedRoute: ActivatedRoute,
+              private myApiService: MyApiService) {
     this.picId = this.activatedRoute.snapshot.params['id'];
     this.color = this.activatedRoute.snapshot.params['color'];
     if (this.color === 'white' || this.color === 'black-white') {
       this.arrowColor = 'black';
     }
+   }
+
+   displayPic() {
+    this.loaded = true;
    }
 
   ngOnInit() {
@@ -43,11 +49,13 @@ export class PictureDetailComponent implements OnInit, DoCheck {
   }
 
   findNextPic() {
+    this.loaded = false;
     this.rank = this.rank + 1;
     this.getPictureIdByColorAndRank(this.color, this.rank);
   }
 
   findPrevPic() {
+    this.loaded = false;
     this.rank = this.rank - 1;
     this.getPictureIdByColorAndRank(this.color, this.rank);
   }

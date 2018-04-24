@@ -76,6 +76,10 @@
     position: relative;
     margin: 0 auto;
 }
+
+#pic-detail > div#pic > img.loader {
+    height: 100px;
+}
   
 
 #pic-detail > div#pic > img {

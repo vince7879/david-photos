@@ -25,7 +25,8 @@
       </ul>
     </div>
     <div id="pic" class="ui-g-12 ui-md-6 ui-g-nopad {{picture.orientation}}">
-        <img src="{{baseUrl}}{{picture.file_name}}" class="double-border">
-        <div id="caption">{{picture.place}}, {{picture.month}} {{picture.year}}</div>
+        <img [hidden]="loaded" src="assets/img/loader.gif" class="loader">
+        <img [hidden]="!loaded" src="{{baseUrl}}{{picture.file_name}}" class="double-border" (load)="displayPic()">
+        <div [hidden]="!loaded" id="caption">{{picture.place}}, {{picture.month}} {{picture.year}}</div>
     </div>
 </div>
