@@ -106,4 +106,8 @@ export class DavidComponent {
     });
   }
 
+  logout() {
+    this.myApiService.logout();
+  }
+
 }

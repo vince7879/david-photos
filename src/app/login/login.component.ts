@@ -21,6 +21,10 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  goToHome() {
+    this.router.navigate(['/']);
+  }
+
   submit() {
     this.loginService.signIn(this.login, this.pwd).subscribe(res => {
       console.log(res.json());

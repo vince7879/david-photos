@@ -1,27 +1,28 @@
-<!-- <head>
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css">
-</head> -->
-<div class="panel panel-default">
-  {{msgError}}
-  <div class="panel-heading">
-    <h3 class="panel-title">Sign in</h3>
+<div class="container ui-g ui-g-nopad">
+  <div class="ui-g-12 ui-md-2 ui-g-nopad">
+    <ul>
+        <li>
+          <a (click)="goToHome()">
+            <img src="assets/img/menusmall.jpg" width="45" height="45">
+          </a>
+        </li>
+   </ul>
   </div>
-  <div class="panel-body">
+  <div class="ui-g-12 ui-md-6 ui-g-nopad">
+    <h1>Sign in</h1>
     <form accept-charset="UTF-8" role="form">
-      <fieldset>
-        <div class="form-group">
-          <input class="form-control" placeholder="Login" name="login" type="text" [(ngModel)]="login">
-        </div>
-        <div class="form-group">
-          <input class="form-control" placeholder="Password" name="password" type="password" [(ngModel)]="pwd">
-        </div>
-        <div class="checkbox">
-          <label>
-            <input name="remember" type="checkbox" value="Remember Me"> Remember Me
-          </label>
-        </div>
-        <div (click)="submit()" class="btn btn-lg btn-success btn-block" type="submit">Access</div>
-      </fieldset>
+      <div class="ui-g-12 ui-md-12">
+        <input class="ui-g-8 ui-md-8 ui-lg-5" placeholder="Login" name="login" type="text" [(ngModel)]="login">
+      </div>
+      <div class="ui-g-12 ui-md-12">
+        <input class="ui-g-8 ui-md-8 ui-lg-5" placeholder="Password" name="password" type="password" [(ngModel)]="pwd">
+      </div>
+      <div class="ui-g-12 ui-md-12">
+        <button (click)="submit()" class="btn btn-success" type="submit">Access</button>
+      </div>
     </form>
+    <div class="ui-g-12 ui-md-12">
+      {{msgError}}
+    </div>
   </div>
 </div>

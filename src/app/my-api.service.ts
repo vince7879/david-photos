@@ -44,6 +44,10 @@ export class MyApiService {
     window.localStorage.clear();
   }
 
+  logout() {
+        this.destroyUserCredentials();
+    }
+
   getHeader() {
     const headers = new Headers();
     this.loadUserCredentials();
