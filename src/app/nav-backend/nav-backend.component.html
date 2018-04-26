@@ -1,0 +1,30 @@
+<div class="ui-g-12 ui-md-2 ui-g-nopad">
+    <ul>
+        <li>
+            <a [routerLink]="['/']">
+                <img src="assets/img/menusmall.jpg" width="45" height="45">
+            </a>
+        </li>
+        <li id="addpic" [routerLinkActive]="['active']">
+            <a [routerLink]="['/david']">
+                <img src="assets/img/addpic.png" width="45" height="45">
+            </a>
+        </li>
+        <li id="admin" [routerLinkActive]="['active']">
+            <a [routerLink]="['/backend']">
+                <img src="assets/img/admin.png" width="45" height="45">
+            </a>
+        </li>
+        <li id="account" [routerLinkActive]="['active']">
+            <a [routerLink]="['/account']">
+                <img src="assets/img/user.png" width="45" height="45">
+            </a>
+        </li>
+        <li id="logout">
+            <a [routerLink]="['/']" (click)="logout()">
+                <img src="assets/img/logout.png" width="45" height="45">
+            </a>
+        </li>
+
+    </ul>
+</div>

@@ -1,3 +1,12 @@
+div.container {
+    margin-top: 70px;
+}
+
+div.container h1 {
+    margin-top: 10px;
+    padding-left: 8px;
+} 
+
 .thumbnailsList {
     width: 415px;
     margin: 0;

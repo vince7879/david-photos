@@ -10,6 +10,7 @@ import { RecentComponent } from '../recent/recent.component';
 import { PictureDetailComponent } from '../picture-detail/picture-detail.component';
 import { DavidComponent } from '../david/david.component';
 import { LoginComponent } from '../login/login.component';
+import { AccountComponent } from '../account/account.component';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 import { LoggedInGuardService} from '../logged-in-guard.service';
 
@@ -43,6 +44,11 @@ const routes: Routes = [
   {
     path: 'david',
     component: DavidComponent,
+    canActivate : [LoggedInGuardService]
+  },
+  {
+    path: 'account',
+    component: AccountComponent,
     canActivate : [LoggedInGuardService]
   },
   {

@@ -12,6 +12,8 @@ import {MyApiService} from '../my-api.service';
 import { Ng2ImgMaxService } from 'ng2-img-max';
 import { DomSanitizer } from '@angular/platform-browser';
 
+import { NavBackendComponent } from '../nav-backend/nav-backend.component';
+
 @Component({
   selector: 'app-david',
   templateUrl: './david.component.html',
@@ -23,14 +25,18 @@ export class DavidComponent {
   picture: File;
   picturePreview: string;
   formdata: FormData;
-  place: string = 'argentine';
+  // place: string;
+  place = 'argentine';
   year: any = '2010';
-  month: string = 'mars';
-  color: string = 'grey';
+  // month: string;
+  month = 'mars';
+  // color: string;
+  color = 'grey';
   colors: any;
   message: string;
   fileContent: any;
   submitted = false;
+  showLoader = false;
 
   constructor(private http: Http,
               private uploadService: UploadService,
@@ -49,10 +55,10 @@ export class DavidComponent {
   }
 
   onChange(event: EventTarget) {
-    let eventObj: MSInputMethodContext = <MSInputMethodContext> event;
-    let target: HTMLInputElement = <HTMLInputElement> eventObj.target;
-    let files: FileList = target.files;
-    let image = files[0];
+    const eventObj: MSInputMethodContext = <MSInputMethodContext> event;
+    const target: HTMLInputElement = <HTMLInputElement> eventObj.target;
+    const files: FileList = target.files;
+    const image = files[0];
     this.ng2ImgMax.resizeImage(image, 500, 10000).subscribe(
       result => {
         this.picture = new File([result], result.name);
@@ -65,7 +71,7 @@ export class DavidComponent {
     this.ng2ImgMax.compressImage(image, 0.9).subscribe(
       result => {
         this.picture = new File([result], result.name);
-        let formData: FormData = new FormData();
+        const formData: FormData = new FormData();
         formData.append('uploadFile', this.picture, this.picture.name);
         this.formdata = formData;
       },
@@ -84,13 +90,14 @@ export class DavidComponent {
   }
 
   onSubmit() {
-    this.submitted = true;
+    // this.submitted = true;
   }
 
   // traiter le fait qu'on puisse resoumettre ac les donnees corrigées qd il ya une erreur
   // pour l'instant s'il ya eeruer puis coorection, c'ets l'erreur qui est soumis les 2 fois
 
   addPic() {
+    this.showLoader = true;
     this.formdata.append('place', this.place);
     this.formdata.append('year', this.year);
     this.formdata.append('month', this.month);
@@ -100,14 +107,11 @@ export class DavidComponent {
       console.log(data);
       if (data.status === 'success') {
         this.message = data.message;
+        this.submitted = true;
       } else {
         this.message = data.message;
       }
     });
-  }
-
-  logout() {
-    this.myApiService.logout();
   }
 
 }

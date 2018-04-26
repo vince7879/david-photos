@@ -1,0 +1,33 @@
+<app-nav-backend></app-nav-backend>
+<div class="container ui-g-12 ui-md-6 ui-g-nopad">
+    <div>
+        <h1>Change password</h1>
+        <form (ngSubmit)="onSubmit()" #mdpForm="ngForm">
+
+            <div class="ui-g-12 ui-md-12">
+                <label class="ui-g-4 ui-md-4 ui-lg-3 ui-g-nopad" for="place">Old password</label>
+                <input type="password" class="ui-g-8 ui-md-8 ui-lg-5" id="oldpwd" required [(ngModel)]="oldpwd" name="oldpwd" #oldpass="ngModel">
+                <div [hidden]="oldpass.valid || oldpass.pristine" class="alert alert-danger">Old password is required</div>
+            </div>
+            <div class="ui-g-12 ui-md-12">
+                <label class="ui-g-4 ui-md-4 ui-lg-3 ui-g-nopad" for="year">New password</label>
+                <input type="password" class="ui-g-8 ui-md-8 ui-lg-5" id="newpwd" required [(ngModel)]="newpwd" name="newpwd" #newpass="ngModel">
+                <div [hidden]="newpass.valid || newpass.pristine" class="alert alert-danger">New password is required</div>
+            </div>
+            <div class="ui-g-12 ui-md-12">
+                <label class="ui-g-4 ui-md-4 ui-lg-3 ui-g-nopad" for="year">Confirm new password</label>
+                <input type="password" class="ui-g-8 ui-md-8 ui-lg-5" id="confpwd" required [(ngModel)]="confpwd" name="confpwd" #confpass="ngModel">
+                <div [hidden]="confpass.valid || confpass.pristine" class="alert alert-danger">Confirm new password is required</div>
+            </div>
+
+
+            <div class="ui-g-12 ui-md-12 ui-lg-8">
+                <button type="submit" class="btn btn-success" [disabled]="!mdpForm.form.valid" (click)="changePwd()">Update password</button>
+            </div>
+
+        </form>
+    </div>
+    <div [hidden]="!submitted" class="ui-g-12 ui-md-12">
+        {{message}}
+    </div>
+</div>

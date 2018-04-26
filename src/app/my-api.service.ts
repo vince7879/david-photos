@@ -114,4 +114,9 @@ export class MyApiService {
       .map((res: Response) => res.json());
   }
 
+  changePwd(oldpwd, newpwd, confpwd) {
+    return this.http.post(this.baseUrl + 'user/changePwd', {oldpwd: oldpwd, newpwd: newpwd, confpwd: confpwd}, this.getHeader())
+    .map(res => res.json());
+}
+
 }

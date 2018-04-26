@@ -2,26 +2,10 @@ div.container {
   margin-top: 70px;
 }
 
-div.container > div {
-  min-width: 200px;
-}
-
-div.container > div > ul {
-  margin: 0 70px;
-}
-
-div.container > div > ul li {
-  list-style-type: none;
-}
-
-div.container > div > ul > li:nth-child(2) > a {
-  color: white;
-}
-
 div.container h1 {
-  margin-top: 0;
+  margin-top: 10px;
   padding-left: 8px;
-}
+} 
 
 form > div > div.alert {
   color: red;
@@ -36,9 +20,8 @@ form > div > div.alert {
   }
 
   .btn {
-    display: inline-block;
+    float: left;
     padding: 4px 12px;
-    /* margin-top: 20px; */
     font-size: 14px;
     line-height: 20px;
     color: #333333;
@@ -67,11 +50,7 @@ form > div > div.alert {
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-form > div:last-child .btn {
-  margin-top: 20px;
-}
-
-  .btn-success {
+.btn-success {
     color: #ffffff;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     background-color: #5bb75b;
@@ -103,5 +82,15 @@ img.preview {
   padding: 2px;
   position: relative;
   margin: 0 auto;
+  float: right;
+}
+
+img.submit-loader,
+img.preview-loader {
+  width: 30px;
+  float: left;
+}
+
+img.preview-loader {
   float: right;
 }

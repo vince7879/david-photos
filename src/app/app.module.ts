@@ -30,6 +30,8 @@ import {OrderListModule} from 'primeng/primeng';
 import { DragulaModule } from 'ng2-dragula';
 import { EditPictureComponent } from './edit-picture/edit-picture.component';
 import { Ng2ImgMaxModule } from 'ng2-img-max';
+import { AccountComponent } from './account/account.component';
+import { NavBackendComponent } from './nav-backend/nav-backend.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { Ng2ImgMaxModule } from 'ng2-img-max';
     RecentComponent,
     BackendComponent,
     EditPictureComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    AccountComponent,
+    NavBackendComponent
   ],
   imports: [
     BrowserModule,
