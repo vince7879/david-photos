@@ -22,7 +22,7 @@
          <ul id="thumbnailsList">
           <li *ngFor="let p of picture_collection">
             <div class="square {{p.orientation}}">
-              <a [routerLink]="['/picture', p.color_name, p.id]" class="preview" title="{{p.name}}">
+              <a [routerLink]="['/picture', p.color_name, p.id]" class="preview">
                 <img appPreview src="{{baseUrl}}{{p.thumb_name}}" class="tn">
               </a>
             </div>

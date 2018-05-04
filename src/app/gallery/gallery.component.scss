@@ -1,4 +1,7 @@
-#gallery > nav > ul > li > a.white {
+$white: 'Blanc';
+$black-white: 'Noir-Blanc';
+
+#gallery > nav > ul > li > a.#{$white} {
     height: 37px;
     width: 37px;
     box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
@@ -7,7 +10,7 @@
     margin-top: 4px;
 }
 
-#gallery > nav > ul > li > a.black-white { 
+#gallery > nav > ul > li > a.#{$black-white} { 
     /* background: repeating-linear-gradient( 45deg, #000000, #000000 16.666%, #ebebeb 16.666%, #ebebeb 33.334% ); */
      background: repeating-linear-gradient( 45deg, #000000, #000000 5%, #ebebeb 5%, #ebebeb 10% );
 }
@@ -21,7 +24,7 @@
     box-sizing: border-box;
 }
 
-#gallery_cadre.white{
+#gallery_cadre.#{$white}{
     width: 506px;
     height: 496px;
     -webkit-box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
@@ -30,7 +33,7 @@
     margin: 4px 0 0 4px;
 }
 /* parametre de cadre hachuré de la gallerie noir et blanc */
-#gallery_cadre.black-white {
+#gallery_cadre.#{$black-white} {
     background: repeating-linear-gradient( 45deg, #ebebeb, #ebebeb 0.3%, #000000 0.5%, #000000 0.9% );
 }
 
@@ -48,7 +51,7 @@
     padding-top: 4px;
 }
 
-#gallery_cadre.white > #thumbnailsList{
+#gallery_cadre.#{$white} > #thumbnailsList{
     -webkit-box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
     -moz-box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
     box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
@@ -102,7 +105,7 @@
     border-bottom: 2px solid white;
 }
 
-#gallery_cadre.white > #page {
+#gallery_cadre.#{$white} > #page {
     right: 0px;
     top: 0px;
     height: 44px;
@@ -110,7 +113,7 @@
     border-color: #000000;
 }
 
-#gallery_cadre.black-white #page {
+#gallery_cadre.#{$black-white} #page {
     right: 0;
 }
 
@@ -128,19 +131,19 @@
     padding-right: 1px;
 }
 #gallery_cadre.yellow #page a,
-#gallery_cadre.white #page a {
+#gallery_cadre.#{$white} #page a {
     color: #000000;
 }
-#gallery_cadre.white > #page > a {
+#gallery_cadre.#{$white} > #page > a {
     padding-top: 4px;
     padding-left: 1px;
 }
 
-#gallery_cadre.black-white #page a#page_2 {
+#gallery_cadre.#{$black-white} #page a#page_2 {
     background-color: black;
     padding: 8px 0px 9px;
 }
-#gallery_cadre.black-white #page a#page_1 {
+#gallery_cadre.#{$black-white} #page a#page_1 {
     background-color: black;
     padding: 8px 0px 9px;
 }
@@ -203,7 +206,7 @@
 
 
 /*
-#gallery_mini.black-white {
+#gallery_mini.#{$black-white} {
     position: absolute;
   left: 50%;
   top: 50%;

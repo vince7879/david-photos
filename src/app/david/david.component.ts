@@ -27,13 +27,16 @@ export class DavidComponent {
   formdata: FormData;
   // place: string;
   place = 'argentine';
+  // year: string;
   year: any = '2010';
   // month: string;
   month = 'mars';
   // color: string;
-  color = 'grey';
+  color = 'Bleu';
   colors: any;
   message: string;
+  error = false;
+  msgError: string;
   fileContent: any;
   submitted = false;
   showLoader = false;
@@ -55,6 +58,7 @@ export class DavidComponent {
   }
 
   onChange(event: EventTarget) {
+    this.picturePreview = '';
     const eventObj: MSInputMethodContext = <MSInputMethodContext> event;
     const target: HTMLInputElement = <HTMLInputElement> eventObj.target;
     const files: FileList = target.files;
@@ -98,6 +102,10 @@ export class DavidComponent {
 
   addPic() {
     this.showLoader = true;
+    this.formdata.delete('place');
+    this.formdata.delete('year');
+    this.formdata.delete('month');
+    this.formdata.delete('color');
     this.formdata.append('place', this.place);
     this.formdata.append('year', this.year);
     this.formdata.append('month', this.month);
@@ -106,10 +114,13 @@ export class DavidComponent {
     this.uploadService.sendPicture(this.formdata).subscribe(data => {
       console.log(data);
       if (data.status === 'success') {
+        this.error = false;
         this.message = data.message;
         this.submitted = true;
       } else {
-        this.message = data.message;
+        this.error = true;
+        this.msgError = data.message;
+        this.showLoader = false;
       }
     });
   }

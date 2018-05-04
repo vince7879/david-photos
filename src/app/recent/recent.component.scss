@@ -1,3 +1,6 @@
+$white: 'Blanc';
+$black-white: 'Noir-Blanc';
+
 #cadre li { display: inline; } 
 
 nav ul li{
@@ -13,7 +16,7 @@ nav ul li a {
     height: 47px;
 }
 
-nav > ul > li > a.white {
+nav > ul > li > a.#{$white} {
     height: 39px;
     width: 39px;
     box-shadow: 0 0 0 2px #000000, 0 0 0 4px #ebebeb;
@@ -22,7 +25,7 @@ nav > ul > li > a.white {
     margin-top: 4px;
 }
 
-#gallery > nav > ul > li > a.black-white {
+#gallery > nav > ul > li > a.#{$black-white} {
     /* background: repeating-linear-gradient( 45deg, #000000, #000000 16.666%, #ebebeb 16.666%, #ebebeb 33.334% ); */
     background: repeating-linear-gradient( 45deg, #000000, #000000 5%, #ebebeb 6%, #ebebeb 10% );
 }

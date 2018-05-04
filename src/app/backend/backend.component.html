@@ -1,6 +1,6 @@
 <app-nav-backend></app-nav-backend>
 <div *ngIf="newPage" class="container ui-g-12 ui-md-6 ui-g-nopad">
-    <h1>Choose a color to edit</h1>
+    <h1>Choisir une couleur à éditer</h1>
     <li *ngFor="let c of color_collection">
         <a [routerLink]="['/backend', { color: c.name }]" class="{{c.name}}" [ngStyle]="{'background-color':c.hexacode}">{{c.name}}</a>
     </li>
@@ -11,7 +11,7 @@
             <a [routerLink]="['/backend', { color: c.name }]" class="{{c.name}}" [ngStyle]="{'background-color':c.hexacode}">{{c.name}}</a>
         </li>
     </div>
-    <h2>Edit {{color}} order</h2>
+    <h2>Editer la galerie {{color}}</h2>
     <ul class="thumbnailsList" [dragula]='"bag-one"' [dragulaModel]='picture_collection'>
         <li *ngFor="let p of picture_collection" class="{{p.rank}}" id="{{p.id}}">
             <div class="square {{p.orientation}}">

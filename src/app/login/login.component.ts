@@ -2,8 +2,8 @@ import { Component, OnInit, Input, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { LoginService } from './login.service';
-import {MyApiService} from '../my-api.service';
-import { Router } from '@angular/router';
+import { MyApiService } from '../my-api.service';
+import { Routes, RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   public login: string;
   public pwd: string;
   public msgError: string;
+  submitted = false;
 
   constructor(private myApiService: MyApiService, private loginService: LoginService, private router: Router) { }
 
@@ -34,6 +35,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['david']);
       } else {
         this.msgError = res.json().message;
+        this.submitted = true;
       }
     });
 

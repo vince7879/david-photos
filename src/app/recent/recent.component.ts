@@ -6,7 +6,7 @@ import {MyApiService} from '../my-api.service';
 @Component({
   selector: 'app-recent',
   templateUrl: './recent.component.html',
-  styleUrls: ['./recent.component.css']
+  styleUrls: ['./recent.component.scss']
 })
 export class RecentComponent implements OnInit {
 

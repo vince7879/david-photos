@@ -9,6 +9,9 @@ div.container h1 {
 
 form > div > div.alert {
   color: red;
+  background-color: unset;
+  border: none;
+  margin-bottom: 0;
 }
 
 .ng-valid[required], .ng-valid.required, .ng-valid[requirefile] {
@@ -19,7 +22,7 @@ form > div > div.alert {
     border-left: 5px solid #a94442; /* red */
   }
 
-  .btn {
+  /* .btn {
     float: left;
     padding: 4px 12px;
     font-size: 14px;
@@ -64,17 +67,29 @@ form > div > div.alert {
     border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff62c462', endColorstr='#ff51a351', GradientType=0);
     filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
-}
+} */
 
 form input,
 form select {
   border-radius: 4px;
 }
 
-form > div:nth-child(6) > button.btn[disabled] {
+form input#picture {
+  padding: 4px 12px;
+  font-size: 14px;
+  color: #333333;
+  cursor: pointer;
+  background-color: #f5f5f5;
+}
+
+form > div:nth-child(6) > button.btn {
+  float: left;
+}
+
+/* form > div:nth-child(6) > button.btn[disabled] {
   cursor: not-allowed;
   opacity: 0.65;
-}
+} */
 
 img.preview {
   height: 120px;
@@ -87,7 +102,7 @@ img.preview {
 
 img.submit-loader,
 img.preview-loader {
-  width: 30px;
+  width: 38px;
   float: left;
 }
 

@@ -74,7 +74,7 @@ export class EditPictureComponent implements OnInit {
     this.dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       disableClose: true
     });
-    this.dialogRef.componentInstance.confirmMessage = 'Are you sure you want to delete the picture ' + this.name + ' ?';
+    this.dialogRef.componentInstance.confirmMessage = 'Etes-vous sûr de vouloir supprimer cette photo ?';
 
     this.dialogRef.afterClosed().subscribe(result => {
       console.log(result);

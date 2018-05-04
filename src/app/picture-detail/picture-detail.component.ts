@@ -5,7 +5,7 @@ import {MyApiService} from '../my-api.service';
 @Component({
   selector: 'app-picture-detail',
   templateUrl: './picture-detail.component.html',
-  styleUrls: ['./picture-detail.component.css']
+  styleUrls: ['./picture-detail.component.scss']
 })
 export class PictureDetailComponent implements OnInit, DoCheck {
 
@@ -26,7 +26,7 @@ export class PictureDetailComponent implements OnInit, DoCheck {
               private myApiService: MyApiService) {
     this.picId = this.activatedRoute.snapshot.params['id'];
     this.color = this.activatedRoute.snapshot.params['color'];
-    if (this.color === 'white' || this.color === 'black-white') {
+    if (this.color === 'Blanc' || this.color === 'Noir-Blanc') {
       this.arrowColor = 'black';
     }
    }
