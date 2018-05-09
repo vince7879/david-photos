@@ -1,16 +1,18 @@
 <app-nav-backend></app-nav-backend>
 <div *ngIf="newPage" class="container ui-g-12 ui-md-6 ui-g-nopad">
-    <h1>Choisir une couleur à éditer</h1>
-    <li *ngFor="let c of color_collection">
-        <a [routerLink]="['/backend', { color: c.name }]" class="{{c.name}}" [ngStyle]="{'background-color':c.hexacode}">{{c.name}}</a>
-    </li>
+    <h1>Choisissez une galerie à éditer</h1>
+    <ul class="colorsToEdit">
+        <li *ngFor="let c of color_collection">
+            <a [routerLink]="['/backend', { color: c.name }]" class="{{c.name}}" [ngStyle]="{'background-color':c.hexacode}"></a>
+        </li>
+    </ul>
 </div>
 <div *ngIf="!newPage" class="container ui-g-12 ui-md-6 ui-g-nopad">
-    <div>
+    <ul class="colorsToEdit">
         <li *ngFor="let c of color_collection">
-            <a [routerLink]="['/backend', { color: c.name }]" class="{{c.name}}" [ngStyle]="{'background-color':c.hexacode}">{{c.name}}</a>
+            <a [routerLink]="['/backend', { color: c.name }]" class="{{c.name}}" [ngStyle]="{'background-color':c.hexacode}"></a>
         </li>
-    </div>
+    </ul>
     <h2>Editer la galerie {{color}}</h2>
     <ul class="thumbnailsList" [dragula]='"bag-one"' [dragulaModel]='picture_collection'>
         <li *ngFor="let p of picture_collection" class="{{p.rank}}" id="{{p.id}}">

@@ -10,7 +10,7 @@ import { DragulaService } from 'ng2-dragula';
 @Component({
   selector: 'app-backend',
   templateUrl: './backend.component.html',
-  styleUrls: ['./backend.component.css']
+  styleUrls: ['./backend.component.scss']
 })
 export class BackendComponent implements DoCheck, OnInit {
 

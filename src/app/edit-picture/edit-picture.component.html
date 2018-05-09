@@ -1,30 +1,24 @@
 <app-nav-backend></app-nav-backend>
-<div [hidden]="picRemoved" class="container ui-g-12 ui-md-6 ui-g-nopad">
+<div [hidden]="picRemoved" class="container ui-g-12 ui-md-10 ui-g-nopad">
     <h1>Editer la photo</h1>
     <div class="ui-g-12 ui-md-4 ui-g-nopad {{picture.orientation}}">
         <img src="{{baseUrl}}{{picture.file_name}}" class="double-border">
     </div>
     <form class="ui-g-12 ui-md-7 ui-md-offset-1 ui-g-nopad" #pictureForm="ngForm">
 
-        <div class="form-group">
-            <label class="control-label col-sm-4" for="place">Lieu
-                <span class="asterisk">*</span>
-            </label>
-            <input type="text" class="form-control" id="place" required [(ngModel)]="place" name="place" #placeName="ngModel">
-            <div [hidden]="placeName.valid || placeName.pristine" class="alert alert-danger">Veuillez saisir un lieu</div>
+        <div class="ui-g-12 ui-md-12">
+            <label class="ui-g-4 ui-md-4 ui-lg-3 ui-g-nopad" for="place">Lieu</label>
+            <input type="text" class="ui-g-8 ui-md-8 ui-lg-5" id="place" required [(ngModel)]="place" name="place" #placeName="ngModel">
+            <div [hidden]="placeName.valid || placeName.pristine" class="ui-g-8 ui-g-offset-4 ui-md-8 ui-md-offset-4 ui-lg-5 ui-lg-offset-3 alert alert-danger">Veuillez saisir un lieu</div>
         </div>
-        <div class="form-group">
-            <label class="control-label col-sm-4" for="year">Année
-                <span class="asterisk">*</span>
-            </label>
-            <input type="text" class="form-control" id="year" minlength="4" maxlength="4" required [(ngModel)]="year" name="year" #picYear="ngModel">
-            <div [hidden]="picYear.valid || picYear.pristine" class="alert alert-danger">Veuillez saisir une année</div>
+        <div class="ui-g-12 ui-md-12">
+            <label class="ui-g-4 ui-md-4 ui-lg-3 ui-g-nopad" for="year">Année</label>
+            <input type="text" class="ui-g-8 ui-md-8 ui-lg-5" id="year" minlength="4" maxlength="4" required [(ngModel)]="year" name="year" #picYear="ngModel">
+            <div [hidden]="picYear.valid || picYear.pristine" class="ui-g-8 ui-g-offset-4 ui-md-8 ui-md-offset-4 ui-lg-5 ui-lg-offset-3 alert alert-danger">Veuillez saisir une année</div>
         </div>
-        <div class="form-group">
-            <label class="control-label col-sm-4" for="month">Mois
-                <span class="asterisk">*</span>
-            </label>
-            <select name="month" class="form-control" id="month" required [(ngModel)]="month" #picMonth="ngModel">
+        <div class="ui-g-12 ui-md-12">
+            <label class="ui-g-4 ui-md-4 ui-lg-3 ui-g-nopad" for="month">Mois</label>
+            <select name="month" class="ui-g-8 ui-md-8 ui-lg-5" id="month" required [(ngModel)]="month" #picMonth="ngModel">
                 <option value="">---</option>
                 <option value="janvier">janvier</option>
                 <option value="fevrier">février</option>
@@ -39,30 +33,30 @@
                 <option value="novembre">novembre</option>
                 <option value="decembre">décembre</option>
             </select>
-            <div [hidden]="picMonth.pristine || picMonth.value != ''" class="alert alert-danger">Veuillez sélectionner un mois</div>
+            <div [hidden]="picMonth.pristine || picMonth.value != ''" class="ui-g-8 ui-g-offset-4 ui-md-8 ui-md-offset-4 ui-lg-5 ui-lg-offset-3 alert alert-danger">Veuillez sélectionner un mois</div>
         </div>
-        <div class="form-group">
-            <label class="control-label col-sm-4" for="color">Couleur
-                <span class="asterisk">*</span>
-            </label>
-            <!-- <input type="text" class="form-control" id="color" [(ngModel)]="color" name="color" required>       -->
-            <select name="color" class="form-control" id="color" required [(ngModel)]="newColor" #picColor="ngModel">
+        <div class="ui-g-12 ui-md-12">
+            <label class="ui-g-4 ui-md-4 ui-lg-3 ui-g-nopad" for="color">Couleur</label>
+            <!-- <input type="text" class="ui-g-8 ui-md-8 ui-lg-5" id="color" [(ngModel)]="color" name="color" required>       -->
+            <select name="color" class="ui-g-8 ui-md-8 ui-lg-5" id="color" required [(ngModel)]="newColor" #picColor="ngModel">
                 <option value="">---</option>
                 <option *ngFor="let col of colors" [value]="col.name">{{col.name}}</option>
             </select>
-            <div [hidden]="picColor.pristine || picColor.value != ''" class="alert alert-danger">Veuillez sélectionner une couleur</div>
+            <div [hidden]="picColor.pristine || picColor.value != ''" class="ui-g-8 ui-g-offset-4 ui-md-8 ui-md-offset-4 ui-lg-5 ui-lg-offset-3 alert alert-danger">Veuillez sélectionner une couleur</div>
         </div>
 
-        <div class="form-group">
+        <div class="buttons ui-g-12 ui-md-12 ui-lg-8">
             <div class="text-center">
                 <button type="submit" class="btn btn-success" [disabled]="!pictureForm.form.valid" (click)="modifyPic()">Enregistrer les modifications</button>
             </div>
         </div>
 
+        <div class="buttons ui-g-12 ui-md-12 ui-lg-8">
+            <button type="button" class="btn btn-danger" (click)="deletePicture()">Supprimer la photo</button>
+        </div>
+
     </form>
-    <div class="ui-g-12 ui-md-7 ui-md-offset-1 ui-g-nopad">
-        <button type="button" class="btn btn-danger" (click)="deletePicture()">Supprimer la photo</button>
-    </div>
+    
 </div>
 
 <div [hidden]="!picRemoved">

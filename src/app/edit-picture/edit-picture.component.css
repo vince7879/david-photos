@@ -14,3 +14,31 @@ div.container h1 {
     margin-top: 10px;
     padding-left: 8px;
 } 
+
+form > div > div.alert {
+    color: red;
+    background-color: unset;
+    border: none;
+    margin-bottom: 0;
+}
+
+.ng-valid[required], .ng-valid.required, .ng-valid[requirefile] {
+    border-left: 5px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+  }
+
+form input,
+form select {
+  border-radius: 4px;
+}
+
+/* div.container .buttons {
+    padding-right: 0;
+} */
+
+div.container .btn {
+    width: 100%;
+}
