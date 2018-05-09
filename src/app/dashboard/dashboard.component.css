@@ -16,6 +16,7 @@
 
 /*couleurs des blocks*/
 #main .white{ background-color: #ebebeb; }
+#main .orange{ background-color:  coral}
 #main .yellow{ background-color: #e5c55e; }
 #main .brown{ background-color: #3e1d0c; }
 #main .red{ background-color: #dc0a0b; }
@@ -55,6 +56,11 @@
     width: 100%;
     text-align: center;
   }
+#top_white_recent.orange span {
+    margin-top: 7px;
+    font-size: 18px;
+}
+
  #top_black {
     left: 22.6%;
     height: 9.7%;
@@ -196,6 +202,16 @@
  /*change la couleur au survol des cases*/
  #main a:hover{
     opacity: 0.9;
+}
+
+/* centrer le carré si ecran < 980px */
+@media screen and (max-width:1439px){
+#top_white_recent span{
+    margin-top: 5px;
+  }
+#top_white_recent.orange span{
+    margin-top: 10px;
+  }
 }
 
 /* centrer le carré si ecran < 980px */

@@ -32,6 +32,7 @@ import { EditPictureComponent } from './edit-picture/edit-picture.component';
 import { Ng2ImgMaxModule } from 'ng2-img-max';
 import { AccountComponent } from './account/account.component';
 import { NavBackendComponent } from './nav-backend/nav-backend.component';
+import { RecentDirective } from './dashboard/recent.directive';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { NavBackendComponent } from './nav-backend/nav-backend.component';
     EditPictureComponent,
     ConfirmationDialogComponent,
     AccountComponent,
-    NavBackendComponent
+    NavBackendComponent,
+    RecentDirective
   ],
   imports: [
     BrowserModule,
