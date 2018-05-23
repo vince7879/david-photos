@@ -6,7 +6,7 @@ body{
     background-color: black;
     /* background-color: #ffffff; */
     color: #ebebeb;
-    font-family: cursive,"Open Sans",arial,x-locale-body,sans-serif;
+    font-family: arial,x-locale-body,sans-serif;
 }
 
 #main{
@@ -97,11 +97,17 @@ button.btn[disabled] {
         border-radius: .25rem;
     }
 
-    .alert-danger {
+.alert-danger {
         color: #721c24;
         background-color: #f8d7da;
         border-color: #f5c6cb;
-    }
+}
+
+.alert-success {
+        color: #155724;
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+}
   
   
 /*page GALLERY*/
@@ -143,9 +149,3 @@ nav ul li:first-child a{
         border: none;
         margin-bottom: 15px;
 }
-
-@media screen and (max-width:1439px){
-        body{
-                font-family: "Open Sans",arial,x-locale-body,sans-serif;
-            }
-    }     

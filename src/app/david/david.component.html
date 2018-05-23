@@ -65,9 +65,11 @@
 
     
     
-    <div [hidden]="!submitted">
+    <div class="loaded" [hidden]="!submitted">
         <div>{{message}}</div>
         <button (click)="pictureForm.reset(); submitted=false; showLoader=false" class="btn btn-success">
-            <img src="assets/img/addpic.png" width="45" height="45">Ajouter une autre photo ?</button>
+            <img src="assets/img/addpic.png" width="45" height="45">
+            <span>Ajouter une autre photo ?</span>
+        </button>
     </div>
 </div>

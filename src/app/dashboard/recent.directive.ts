@@ -22,7 +22,7 @@ export class RecentDirective {
   }
   @HostListener('mouseleave')
   onMouseLeave() {
-    console.log(this.elRef);
+    // console.log(this.elRef);
     this.elRef.nativeElement.className = 'white';
     this.renderer.removeChild(this.elRef.nativeElement, this.elRef.nativeElement.childNodes[1]);
     this.renderer.removeChild(this.span, this.enRecent);

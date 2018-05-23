@@ -55,10 +55,13 @@
             <button type="button" class="btn btn-danger" (click)="deletePicture()">Supprimer la photo</button>
         </div>
 
+        <div *ngIf="error" class="ui-g-12 ui-md-12 ui-lg-8 alert alert-danger">{{msgError}}</div>
+        <div *ngIf="!error && msgSuccess != ''" class="ui-g-12 ui-md-12 ui-lg-8 alert alert-success">{{msgSuccess}}</div>
+
     </form>
     
 </div>
 
-<div [hidden]="!picRemoved">
-    {{message}}
+<div [hidden]="!picRemoved" class="removed ui-g-12 ui-md-10 ui-g-nopad">
+    <div class="ui-g-12 ui-md-12 ui-lg-8 alert alert-success">{{message}}</div>
 </div>

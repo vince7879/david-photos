@@ -26,13 +26,13 @@ export class DavidComponent {
   picturePreview: string;
   formdata: FormData;
   // place: string;
-  place = 'argentine';
+  place = 'Pérou';
   // year: string;
   year: any = '2010';
   // month: string;
   month = 'mars';
   // color: string;
-  color = 'Bleu';
+  color = 'Noir-Blanc';
   colors: any;
   message: string;
   error = false;
@@ -112,7 +112,7 @@ export class DavidComponent {
     this.formdata.append('color', this.color);
 
     this.uploadService.sendPicture(this.formdata).subscribe(data => {
-      console.log(data);
+      // console.log(data);
       if (data.status === 'success') {
         this.error = false;
         this.message = data.message;

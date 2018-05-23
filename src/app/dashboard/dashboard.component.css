@@ -55,9 +55,10 @@
     font-weight: bold;
     width: 100%;
     text-align: center;
+    margin-top: 5%;
   }
 #top_white_recent.orange span {
-    margin-top: 7px;
+    margin-top: 5%;
     font-size: 18px;
 }
 
@@ -178,7 +179,7 @@
      color: black;
      font-size: 0.6em;
      position: absolute;
-     margin-top: 1px;
+     margin-top: 1%;
      left: 3px;
  }
  #bottom_long_white > div > span:nth-child(2) {
@@ -206,11 +207,8 @@
 
 /* centrer le carré si ecran < 980px */
 @media screen and (max-width:1439px){
-#top_white_recent span{
-    margin-top: 5px;
-  }
 #top_white_recent.orange span{
-    margin-top: 10px;
+    /* margin-top: 10px; */
   }
 }
 
@@ -272,7 +270,7 @@
     #david_sign > img {
         width: 64%;
         margin-left: 18%;
-       margin-top: 10px;
+       /* margin-top: 10px; */
     }
     #big_blue {
         top: 75.1%;
@@ -287,9 +285,9 @@
         height: 7.4%;
     }
 
-    #bottom_long_white > div > span {
+    /* #bottom_long_white > div > span {
         margin-top: 3px;
-    }
+    } */
 }
 
 /* iphone 6/7/8/X landscape */
@@ -300,13 +298,19 @@
     }
 
     #david_sign > img {
-        margin-top: 7px;
+        /* margin-top: 7px; */
     }
 
     #bottom_long_white > div > span {
-        margin-top: 1px;
+        /* margin-top: 1px; */
     }
 
+}
+
+@media screen and (max-width: 640px) {
+    #david_sign > img {
+        margin-top: 2%;
+    }
 }
 
 /* iphone 5 landscape */
@@ -428,12 +432,11 @@
 /* iphone 6/7/8 portrait*/
 @media screen and (max-width: 425px) and (min-height: 641px) {
     #top_white_recent > span {
-        margin-top: 3px;
         font-size: 30px;
     }
 
     #david_sign > img {
-        margin-top: 5px;
+        /* margin-top: 5px; */
     }
 }
 
@@ -443,7 +446,7 @@
         font-size: 35px;
     }
     #bottom_long_white > div > span {
-        margin-top: 3px;
+        /* margin-top: 3px; */
     }
 }
 
@@ -487,7 +490,7 @@
     }
 
     #david_sign > img {
-        margin-top: 15px;
+        /* margin-top: 15px; */
     }
 
     #big_blue {
@@ -517,7 +520,7 @@
     }
 
     #david_sign > img {
-        margin-top: 5px;
+        /* margin-top: 5px; */
     }
 }
 

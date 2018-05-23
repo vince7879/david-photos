@@ -13,7 +13,7 @@
             <a [routerLink]="['/backend', { color: c.name }]" class="{{c.name}}" [ngStyle]="{'background-color':c.hexacode}"></a>
         </li>
     </ul>
-    <h2>Editer la galerie {{color}}</h2>
+    <h2>Editer la galerie "{{color}}"</h2>
     <ul class="thumbnailsList" [dragula]='"bag-one"' [dragulaModel]='picture_collection'>
         <li *ngFor="let p of picture_collection" class="{{p.rank}}" id="{{p.id}}">
             <div class="square {{p.orientation}}">

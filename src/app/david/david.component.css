@@ -109,3 +109,20 @@ img.preview-loader {
 img.preview-loader {
   float: right;
 }
+
+div.loaded > button {
+  margin-top: 20px;
+}
+
+div.loaded > button > span {
+  display: flex;
+  align-items: center;
+  display: -webkit-flex;
+  -webkit-align-items: center;
+}
+
+@media screen and (max-width: 320px) {
+  div.container {
+    margin-top: 30px;
+  }
+}

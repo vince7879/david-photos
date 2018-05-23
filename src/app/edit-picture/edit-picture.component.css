@@ -1,4 +1,4 @@
-div.container {
+div.container, div.removed {
     margin-top: 70px;
 }
 
@@ -42,3 +42,4 @@ form select {
 div.container .btn {
     width: 100%;
 }
+

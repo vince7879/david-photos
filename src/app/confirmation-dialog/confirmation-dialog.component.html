@@ -1,6 +1,6 @@
 <h1 md-dialog-title>Confirmation</h1>
 <div md-dialog-content>{{confirmMessage}}</div>
 <div md-dialog-actions>
-  <button class="delete btn btn-danger" md-button (click)="dialogRef.close(true)">Supprimer</button>
+  <button class="delete btn btn-{{classBtn}}" md-button (click)="dialogRef.close(true)">{{confirmBtn}}</button>
   <button class="cancel btn btn-light" md-button (click)="dialogRef.close(false)">Annuler</button>
 </div>

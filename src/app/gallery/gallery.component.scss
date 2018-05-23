@@ -121,10 +121,10 @@ $black-white: 'Noir-Blanc';
     display: inline-block;
     width: 100%;
     text-align: center;
-    padding-top: 8px;
+    padding-top: 13px;
     color: #ebebeb;
     text-decoration: none;
-    font-family: cursive;
+    // font-family: cursive;
     font-size: 1.5em;
 }
 #gallery_cadre > #page a#page_1 {
@@ -135,82 +135,30 @@ $black-white: 'Noir-Blanc';
     color: #000000;
 }
 #gallery_cadre.#{$white} > #page > a {
-    padding-top: 4px;
+    padding-top: 9px;
     padding-left: 1px;
 }
 
 #gallery_cadre.#{$black-white} #page a#page_2 {
     background-color: black;
-    padding: 8px 0px 9px;
+    padding: 13px 0px 9px;
 }
 #gallery_cadre.#{$black-white} #page a#page_1 {
     background-color: black;
-    padding: 8px 0px 9px;
+    padding: 13px 0px 9px;
 }
 
-
-/*
-#thumbnailsList {
-    margin: 0;
-    padding-left: 7px;
+@media screen and (max-width: 640px) {
+    #gallery > nav {
+        width: 100%;
+    }
+    #gallery > nav > ul {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    #gallery > nav > ul > li {
+        display: inline-block;
+        margin-right: 2%;
+    }
 }
-
-#thumbnailsList .square {
-    height: 75px;
-    width: 75px;
-    padding: 0 10px 18px 10px;
-}
-
-#thumbnailsList li:nth-child(1) .square,
-#thumbnailsList li:nth-child(2) .square,
-#thumbnailsList li:nth-child(3) .square,
-#thumbnailsList li:nth-child(4) .square
-{
-    padding: 18px 10px;
-}
-
-#thumbnailsList .landscape {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-#thumbnailsList .portrait {
-    display: inline-block;
-    vertical-align: bottom;
-}
-
-#thumbnailsList .square img {
-    max-width: 100%;
-    max-height: 100%;
-    border: none;
-    display: block;
-    margin: 0 auto;
-    border: 1px solid white;
-    transition: transform 0.5s ease;    
-}
-
-#thumbnailsList .square img:hover {
-    -moz-transform: scale(1.4); 
-    -webkit-transform: scale(1.4); 
-    -o-transform: scale(1.4); 
-    transform: scale(1.4); 
-}
-
-#preview {
-    position:absolute;
-    border:1px solid #ccc;
-} */
-
-
-
-
-
-/*
-#gallery_mini.#{$black-white} {
-    position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  background-color: #000000;
-} */

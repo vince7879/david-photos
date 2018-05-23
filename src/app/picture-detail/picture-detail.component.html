@@ -10,8 +10,6 @@
                 <a [routerLink]="['/gallery', { color: color, page: 1 }]" class="{{color}}" [ngStyle]="{'background-color':hexacode}"></a>
               
           </li>
-        </ul>
-        <ul>
           <li>
               <button [disabled]="picNb === 1 || rank === 1" [ngClass]="picNb > 1 && (rank != 1) ? 'allowed':'not-allowed'" class="{{color}}" id="prev_pic" (click)="findPrevPic()" [ngStyle]="{'background-color':hexacode}">
                 <img src="assets/img/left-arrow-{{arrowColor}}.png">
