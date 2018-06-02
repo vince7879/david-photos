@@ -14,9 +14,9 @@ export class MyApiService {
   constructor(http: Http) {
     this.http = http;
     //     connexion locale
-    this.baseUrl = 'http://127.0.0.1:3000/';
+    // this.baseUrl = 'http://127.0.0.1:3000/';
     //     connexion david server
-    // this.baseUrl = 'https://api.david-photo.org/';
+    this.baseUrl = 'https://api.david-photo.org/';
     this.authToken = null;
    }
 
