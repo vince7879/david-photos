@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
 
   submit() {
     this.loginService.signIn(this.login, this.pwd).subscribe(res => {
-      console.log(res.json());
+      // console.log(res.json());
       if (res.json().status === 'success') {
         const token = res.json().token;
         this.myApiService.storeUserCredentials(token);

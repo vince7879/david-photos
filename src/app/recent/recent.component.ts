@@ -31,7 +31,7 @@ export class RecentComponent implements OnInit {
   getRecentPictures() {
     this.myApiService.getRecentPic().subscribe(response => {
       this.picture_collection = response.json().data;
-      console.log(this.picture_collection);
+      // console.log(this.picture_collection);
     });
   }
 

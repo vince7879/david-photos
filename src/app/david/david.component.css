@@ -7,12 +7,12 @@ div.container h1 {
   padding-left: 8px;
 } 
 
-form > div > div.alert {
+/* form > div > div.alert {
   color: red;
   background-color: unset;
   border: none;
   margin-bottom: 0;
-}
+} */
 
 .ng-valid[required], .ng-valid.required, .ng-valid[requirefile] {
     border-left: 5px solid #42A948; /* green */
@@ -69,10 +69,10 @@ form > div > div.alert {
     filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 } */
 
-form input,
+/* form input,
 form select {
   border-radius: 4px;
-}
+} */
 
 form input#picture {
   padding: 4px 12px;

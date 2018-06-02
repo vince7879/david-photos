@@ -23,7 +23,7 @@ export class EditPictureComponent implements OnInit {
   details: any = {};
   error = false;
   msgError: string;
-  msgSuccess: string = '';
+  msgSuccess = '';
   message: string;
   dialogRef: MatDialogRef<ConfirmationDialogComponent>;
   picRemoved = false;

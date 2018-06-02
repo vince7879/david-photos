@@ -43,3 +43,23 @@ div.container .btn {
     width: 100%;
 }
 
+@media screen and (min-width: 641px) and (max-width: 1215px) {
+
+    :host /deep/ #backnav {
+        width: 100%;
+        margin-top: 0
+    }
+
+    :host /deep/ #backnav ul {
+        margin: 0 30px
+    }
+    
+    :host /deep/ #backnav li {
+        display: inline-block;
+        margin: 10px
+    }
+
+    div.container, div.removed {
+        margin-left: 70px;
+    }
+}

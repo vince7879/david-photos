@@ -1,4 +1,4 @@
-div.container {
+div.container, div.changed {
     margin-top: 70px;
 }
 
@@ -6,3 +6,11 @@ div.container h1 {
     margin-top: 10px;
     padding-left: 8px;
 } 
+
+@media screen and (max-width: 1024px) {
+    
+    div.container form input {
+        margin-top: 5px;
+    }
+
+}

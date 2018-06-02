@@ -14,7 +14,11 @@ export class AccountComponent implements OnInit {
   newpwd: string;
   confpwd: string;
   submitted = false;
-  message: string;
+  error = false;
+  msgError: string;
+  msgSuccess = '';
+  // message: string;
+  pwdChanged = false;
 
   constructor(private myApiService: MyApiService) { }
 
@@ -27,11 +31,15 @@ export class AccountComponent implements OnInit {
 
   changePwd() {
     this.myApiService.changePwd(this.oldpwd, this.newpwd, this.confpwd).subscribe(response => {
-      console.log(response);
+      // console.log(response);
       if (response.status === 'success') {
-        this.message = response.message;
+        this.error = false;
+        this.msgSuccess = response.message;
+        this.pwdChanged = true;
       } else {
-        this.message = response.message;
+        this.error = true;
+        this.msgError = response.message;
+        this.pwdChanged = false;
       }
     });
   }

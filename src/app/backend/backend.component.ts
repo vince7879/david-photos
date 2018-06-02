@@ -58,7 +58,7 @@ export class BackendComponent implements DoCheck, OnInit {
   private onDropModel(args) {
     const [el, target, source] = args;
     this.myApiService.setNewOrder(this.picture_collection).subscribe(response => {
-      console.log(response);
+      // console.log(response);
     });
   }
 

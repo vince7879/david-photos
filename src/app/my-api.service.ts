@@ -13,14 +13,8 @@ export class MyApiService {
 
   constructor(http: Http) {
     this.http = http;
-    //     connexion à distance sur zenbook en wifi
-    // this.baseUrl = 'http://192.168.1.12:3200/';
-    //     connexion à distance sur zenbook en wifi à Florimont
-    // this.baseUrl = 'http://192.168.1.87:3200/';
     //     connexion locale
     this.baseUrl = 'http://127.0.0.1:3000/';
-    //     connexion myserver
-    // this.baseUrl = 'https://api.vincentdelsalle.pro/';
     //     connexion david server
     // this.baseUrl = 'https://api.david-photo.org/';
     this.authToken = null;

@@ -58,7 +58,7 @@
                 <img [hidden]="picFile.invalid" *ngIf="picturePreview" [src]="sanitizer.bypassSecurityTrustUrl(picturePreview)" class="preview">
             </div>
 
-            <div *ngIf="error" class="ui-g-12 ui-md-12 ui-lg-8 alert alert-danger">{{msgError}}</div>
+            <div *ngIf="error" class="ui-g-12 ui-md-12 ui-lg-8 alert alert-danger"><p>{{msgError}}</p></div>
 
         </form>
     </div>
