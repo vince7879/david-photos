@@ -15,6 +15,8 @@ export class EditPictureComponent implements OnInit {
   picture: any = {};
   place: string;
   year: any;
+  date = new Date();
+  currentYear: number;
   month: string;
   oldColor: string;
   newColor: string;
@@ -30,6 +32,7 @@ export class EditPictureComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private myApiService: MyApiService, public dialog: MatDialog) {
     this.oldColor = this.activatedRoute.snapshot.params['color'];
+    this.currentYear = this.date.getFullYear();
   }
 
   ngOnInit() {

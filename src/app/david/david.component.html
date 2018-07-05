@@ -11,26 +11,42 @@
             </div>
             <div class="ui-g-12 ui-md-12">
                 <label class="ui-g-4 ui-md-4 ui-lg-3 ui-g-nopad" for="year">Année</label>
-                <input type="text" class="ui-g-8 ui-md-8 ui-lg-5" id="year" required [(ngModel)]="year" name="year"
-                    #picYear="ngModel">
-                <div [hidden]="picYear.valid || picYear.pristine" class="ui-g-8 ui-g-offset-4 ui-md-8 ui-md-offset-4 ui-lg-5 ui-lg-offset-3 alert alert-danger">Veuillez saisir une année</div>
+                <!-- <input type="text" class="ui-g-8 ui-md-8 ui-lg-5" id="year" required [(ngModel)]="year" name="year" #picYear="ngModel"> -->
+                <select class="ui-g-8 ui-md-8 ui-lg-5" id="year" required [(ngModel)]="year" name="year" #picYear="ngModel">
+                    <option value="">---</option>
+                    <option value="{{currentYear - 13}}">{{currentYear - 13}}</option>
+                    <option value="{{currentYear - 12}}">{{currentYear - 12}}</option>
+                    <option value="{{currentYear - 11}}">{{currentYear - 11}}</option>
+                    <option value="{{currentYear - 10}}">{{currentYear - 10}}</option>
+                    <option value="{{currentYear - 9}}">{{currentYear - 9}}</option>
+                    <option value="{{currentYear - 8}}">{{currentYear - 8}}</option>
+                    <option value="{{currentYear - 7}}">{{currentYear - 7}}</option>
+                    <option value="{{currentYear - 6}}">{{currentYear - 6}}</option>
+                    <option value="{{currentYear - 5}}">{{currentYear - 5}}</option>
+                    <option value="{{currentYear - 4}}">{{currentYear - 4}}</option>
+                    <option value="{{currentYear - 3}}">{{currentYear - 3}}</option>
+                    <option value="{{currentYear - 2}}">{{currentYear - 2}}</option>
+                    <option value="{{currentYear - 1}}">{{currentYear - 1}}</option>
+                    <option value="{{currentYear}}">{{currentYear}}</option>
+                </select>
+                <div [hidden]="picYear.valid || picYear.pristine" class="ui-g-8 ui-g-offset-4 ui-md-8 ui-md-offset-4 ui-lg-5 ui-lg-offset-3 alert alert-danger">Veuillez sélectionner une année</div>
             </div>
             <div class="ui-g-12 ui-md-12">
                 <label class="ui-g-4 ui-md-4 ui-lg-3 ui-g-nopad" for="month">Mois</label>
                 <select name="month" class="ui-g-8 ui-md-8 ui-lg-5" id="month" required [(ngModel)]="month" #picMonth="ngModel">
                     <option value="">---</option>
                     <option value="janvier">janvier</option>
-                    <option value="fevrier">février</option>
+                    <option value="février">février</option>
                     <option value="mars">mars</option>
                     <option value="avril">avril</option>
                     <option value="mai">mai</option>
                     <option value="juin">juin</option>
                     <option value="juillet">juillet</option>
-                    <option value="aout">août</option>
+                    <option value="août">août</option>
                     <option value="septembre">septembre</option>
                     <option value="octobre">octobre</option>
                     <option value="novembre">novembre</option>
-                    <option value="decembre">décembre</option>
+                    <option value="décembre">décembre</option>
                 </select>
                 <div [hidden]="picMonth.pristine || picMonth.value != ''" class="ui-g-8 ui-g-offset-4 ui-md-8 ui-md-offset-4 ui-lg-5 ui-lg-offset-3 alert alert-danger">Veuillez sélectionner un mois</div>
             </div>

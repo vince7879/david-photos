@@ -28,6 +28,8 @@ export class DavidComponent {
   place: string;
   // place = 'Pérou';
   year: string;
+  date = new Date();
+  currentYear: number;
   // year: any = '2010';
   month: string;
   // month = 'mars';
@@ -48,6 +50,7 @@ export class DavidComponent {
               private ng2ImgMax: Ng2ImgMaxService,
               public sanitizer: DomSanitizer) {
                 this.getColors();
+                this.currentYear = this.date.getFullYear();
   }
 
   getColors() {
