@@ -75,7 +75,7 @@ export class DavidComponent {
         console.log('😢 Oh no!', error);
       }
     );
-    this.ng2ImgMax.compressImage(image, 0.9).subscribe(
+    this.ng2ImgMax.compressImage(image, 3).subscribe(
       result => {
         this.picture = new File([result], result.name);
         const formData: FormData = new FormData();
