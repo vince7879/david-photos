@@ -23,6 +23,7 @@ import { FileValidatorDirective } from './file-validator.directive';
 import { FileValueAccessorDirective } from './file-value-accessor.directive';
 import { PreviewDirective } from './gallery/preview.directive';
 import { PictureDetailComponent } from './picture-detail/picture-detail.component';
+import { RecentPictureComponent } from './recent-picture/recent-picture.component';
 import { RecentComponent } from './recent/recent.component';
 import { BackendComponent } from './backend/backend.component';
 
@@ -45,6 +46,7 @@ import { RecentDirective } from './dashboard/recent.directive';
     FileValueAccessorDirective,
     PreviewDirective,
     PictureDetailComponent,
+    RecentPictureComponent,
     RecentComponent,
     BackendComponent,
     EditPictureComponent,

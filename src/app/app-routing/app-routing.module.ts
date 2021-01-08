@@ -8,6 +8,7 @@ import { EditPictureComponent } from '../edit-picture/edit-picture.component';
 import { GalleryComponent } from '../gallery/gallery.component';
 import { RecentComponent } from '../recent/recent.component';
 import { PictureDetailComponent } from '../picture-detail/picture-detail.component';
+import { RecentPictureComponent } from '../recent-picture/recent-picture.component';
 import { DavidComponent } from '../david/david.component';
 import { LoginComponent } from '../login/login.component';
 import { AccountComponent } from '../account/account.component';
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
       path: 'recent',
       component: RecentComponent,
+  },
+  {
+      path: 'recent/:id',
+      component: RecentPictureComponent,
   },
   {
       path: 'picture/:color/:id',
