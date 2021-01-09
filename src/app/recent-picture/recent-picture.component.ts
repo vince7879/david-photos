@@ -1,5 +1,5 @@
 import { Component, OnInit, DoCheck, AfterViewChecked } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Location } from "@angular/common";
 import { MyApiService } from "../my-api.service";
 
@@ -20,7 +20,8 @@ export class RecentPictureComponent
   constructor(
     private activatedRoute: ActivatedRoute,
     private myApiService: MyApiService,
-    private location: Location
+    private location: Location,
+    private router: Router
   ) {
     this.picId = this.activatedRoute.snapshot.params["id"];
   }
@@ -61,6 +62,9 @@ export class RecentPictureComponent
 
   getRecentPictureDetailById(id) {
     this.myApiService.getPicture(id).subscribe((response) => {
+      if (!response.json().data) {
+        this.router.navigate(["/404"]);
+      }
       this.picture = response.json().data;
     });
   }
