@@ -1,30 +1,59 @@
 <div id="pic-detail" class="ui-g ui-g-nopad">
-    <div id="nav" class="ui-g-12 ui-md-2 ui-g-nopad">
-        <ul>
-            <li>
-              <a routerLink="/">
-                <img src="assets/img/menusmall.jpg" width="50" height="50" alt="Accueil">
-              </a>
-            </li>
-            <li>
-                <a [routerLink]="['/gallery', { color: color, page: 1 }]" class="{{color}}" [ngStyle]="{'background-color':hexacode}"></a>
-              
-          </li>
-          <li>
-              <button [disabled]="picNb === 1 || rank === 1" [ngClass]="picNb > 1 && (rank != 1) ? 'allowed':'not-allowed'" class="{{color}}" id="prev_pic" (click)="findPrevPic()" [ngStyle]="{'background-color':hexacode}">
-                <img src="assets/img/left-arrow-{{arrowColor}}.png">
-              </button>
-          </li>
-          <li>
-            <button [disabled]="picNb === 1 || (rank === picNb)" [ngClass]="picNb > 1 && (rank != picNb) ? 'allowed':'not-allowed'" class="{{color}}" id="next_pic" (click)="findNextPic()" [ngStyle]="{'background-color':hexacode}">
-              <img src="assets/img/right-arrow-{{arrowColor}}.png">
-            </button>
-          </li>
-      </ul>
+  <div id="nav" class="ui-g-12 ui-md-2 ui-g-nopad">
+    <ul>
+      <li>
+        <a routerLink="/">
+          <img
+            src="assets/img/menusmall.jpg"
+            width="50"
+            height="50"
+            alt="Accueil"
+          />
+        </a>
+      </li>
+      <li>
+        <a
+          [routerLink]="['/gallery', { color: color, page: 1 }]"
+          class="{{ color }}"
+          [ngStyle]="{ 'background-color': hexacode }"
+        ></a>
+      </li>
+      <li>
+        <button
+          [disabled]="picNb === 1 || rank === 1"
+          [ngClass]="picNb > 1 && rank != 1 ? 'allowed' : 'not-allowed'"
+          class="{{ color }}"
+          id="prev_pic"
+          (click)="findPrevPic()"
+          [ngStyle]="{ 'background-color': hexacode }"
+        >
+          <img src="assets/img/left-arrow-{{ arrowColor }}.png" />
+        </button>
+      </li>
+      <li>
+        <button
+          [disabled]="picNb === 1 || rank === picNb"
+          [ngClass]="picNb > 1 && rank != picNb ? 'allowed' : 'not-allowed'"
+          class="{{ color }}"
+          id="next_pic"
+          (click)="findNextPic()"
+          [ngStyle]="{ 'background-color': hexacode }"
+        >
+          <img src="assets/img/right-arrow-{{ arrowColor }}.png" />
+        </button>
+      </li>
+    </ul>
+  </div>
+  <div id="pic" class="ui-g-12 ui-md-10 ui-g-nopad {{ picture.orientation }}">
+    <img [hidden]="loaded" src="assets/img/loading_dots.gif" class="loader" />
+    <img
+      [hidden]="!loaded"
+      src="{{ baseUrl }}{{ picture.file_name }}"
+      class="photo"
+      (load)="displayPic()"
+    />
+    <div [hidden]="!loaded" id="caption">
+      {{ picture.place }}, {{ picture.month }} {{ picture.year }}
     </div>
-    <div id="pic" class="ui-g-12 ui-md-6 ui-g-nopad {{picture.orientation}}">
-        <img [hidden]="loaded" src="assets/img/loading_dots.gif" class="loader">
-        <img [hidden]="!loaded" src="{{baseUrl}}{{picture.file_name}}" class="double-border" (load)="displayPic()">
-        <div [hidden]="!loaded" id="caption">{{picture.place}}, {{picture.month}} {{picture.year}}</div>
-    </div>
+  </div>
 </div>

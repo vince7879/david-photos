@@ -24,7 +24,6 @@
         <button
           [disabled]="currentIndex === 0"
           [ngClass]="currentIndex > 0 ? 'allowed' : 'not-allowed'"
-          class="{{ color }}"
           id="prev_pic"
           (click)="findPrevPic()"
           [ngStyle]="{ 'background-color': 'black' }"
@@ -36,7 +35,6 @@
         <button
           [disabled]="currentIndex === 15"
           [ngClass]="currentIndex < 15 ? 'allowed' : 'not-allowed'"
-          class="{{ color }}"
           id="next_pic"
           (click)="findNextPic()"
           [ngStyle]="{ 'background-color': 'black' }"
@@ -46,12 +44,12 @@
       </li>
     </ul>
   </div>
-  <div id="pic" class="ui-g-12 ui-md-6 ui-g-nopad {{ picture.orientation }}">
+  <div id="pic" class="ui-g-12 ui-md-10 ui-g-nopad {{ picture.orientation }}">
     <img [hidden]="loaded" src="assets/img/loading_dots.gif" class="loader" />
     <img
       [hidden]="!loaded"
       src="{{ baseUrl }}{{ picture.file_name }}"
-      class="double-border"
+      class="photo"
       (load)="displayPic()"
     />
     <div [hidden]="!loaded" id="caption">
