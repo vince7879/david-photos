@@ -1,91 +1,187 @@
 <app-nav-backend></app-nav-backend>
 <div class="container ui-g-12 ui-md-6 ui-g-nopad">
-    <div [hidden]="submitted">
-        <h1>Ajouter une photo</h1>
-        <form (ngSubmit)="onSubmit()" #pictureForm="ngForm">
+  <div [hidden]="submitted">
+    <h1>Ajouter une photo</h1>
+    <form (ngSubmit)="onSubmit()" #pictureForm="ngForm">
+      <div class="ui-g-12 ui-md-12">
+        <label class="ui-g-4 ui-md-4 ui-lg-3 ui-g-nopad" for="place"
+          >Lieu</label
+        >
+        <input
+          type="text"
+          class="ui-g-8 ui-md-8 ui-lg-5"
+          id="place"
+          required
+          [(ngModel)]="place"
+          name="place"
+          #placeName="ngModel"
+        />
+        <div
+          [hidden]="placeName.valid || placeName.pristine"
+          class="ui-g-8 ui-g-offset-4 ui-md-8 ui-md-offset-4 ui-lg-5 ui-lg-offset-3 alert alert-danger"
+        >
+          Veuillez saisir un lieu
+        </div>
+      </div>
+      <div class="ui-g-12 ui-md-12">
+        <label class="ui-g-4 ui-md-4 ui-lg-3 ui-g-nopad" for="year"
+          >Année</label
+        >
+        <!-- <input type="text" class="ui-g-8 ui-md-8 ui-lg-5" id="year" required [(ngModel)]="year" name="year" #picYear="ngModel"> -->
+        <select
+          class="ui-g-8 ui-md-8 ui-lg-5"
+          id="year"
+          required
+          [(ngModel)]="year"
+          name="year"
+          #picYear="ngModel"
+        >
+          <option value="">---</option>
+          <option value="{{ currentYear - 13 }}">{{ currentYear - 13 }}</option>
+          <option value="{{ currentYear - 12 }}">{{ currentYear - 12 }}</option>
+          <option value="{{ currentYear - 11 }}">{{ currentYear - 11 }}</option>
+          <option value="{{ currentYear - 10 }}">{{ currentYear - 10 }}</option>
+          <option value="{{ currentYear - 9 }}">{{ currentYear - 9 }}</option>
+          <option value="{{ currentYear - 8 }}">{{ currentYear - 8 }}</option>
+          <option value="{{ currentYear - 7 }}">{{ currentYear - 7 }}</option>
+          <option value="{{ currentYear - 6 }}">{{ currentYear - 6 }}</option>
+          <option value="{{ currentYear - 5 }}">{{ currentYear - 5 }}</option>
+          <option value="{{ currentYear - 4 }}">{{ currentYear - 4 }}</option>
+          <option value="{{ currentYear - 3 }}">{{ currentYear - 3 }}</option>
+          <option value="{{ currentYear - 2 }}">{{ currentYear - 2 }}</option>
+          <option value="{{ currentYear - 1 }}">{{ currentYear - 1 }}</option>
+          <option value="{{ currentYear }}">{{ currentYear }}</option>
+        </select>
+        <div
+          [hidden]="picYear.valid || picYear.pristine"
+          class="ui-g-8 ui-g-offset-4 ui-md-8 ui-md-offset-4 ui-lg-5 ui-lg-offset-3 alert alert-danger"
+        >
+          Veuillez sélectionner une année
+        </div>
+      </div>
+      <div class="ui-g-12 ui-md-12">
+        <label class="ui-g-4 ui-md-4 ui-lg-3 ui-g-nopad" for="month"
+          >Mois</label
+        >
+        <select
+          name="month"
+          class="ui-g-8 ui-md-8 ui-lg-5"
+          id="month"
+          required
+          [(ngModel)]="month"
+          #picMonth="ngModel"
+        >
+          <option value="">---</option>
+          <option value="janvier">janvier</option>
+          <option value="février">février</option>
+          <option value="mars">mars</option>
+          <option value="avril">avril</option>
+          <option value="mai">mai</option>
+          <option value="juin">juin</option>
+          <option value="juillet">juillet</option>
+          <option value="août">août</option>
+          <option value="septembre">septembre</option>
+          <option value="octobre">octobre</option>
+          <option value="novembre">novembre</option>
+          <option value="décembre">décembre</option>
+        </select>
+        <div
+          [hidden]="picMonth.pristine || picMonth.value != ''"
+          class="ui-g-8 ui-g-offset-4 ui-md-8 ui-md-offset-4 ui-lg-5 ui-lg-offset-3 alert alert-danger"
+        >
+          Veuillez sélectionner un mois
+        </div>
+      </div>
+      <div class="ui-g-12 ui-md-12">
+        <label class="ui-g-4 ui-md-4 ui-lg-3 ui-g-nopad" for="color"
+          >Couleur</label
+        >
+        <!-- <input type="text" class="ui-g-8 ui-md-8 ui-lg-5" id="color" [(ngModel)]="color" name="color" required>       -->
+        <select
+          name="color"
+          class="ui-g-8 ui-md-8 ui-lg-5"
+          id="color"
+          required
+          [(ngModel)]="color"
+          #picColor="ngModel"
+        >
+          <option value="">---</option>
+          <option *ngFor="let col of colors" [value]="col.name">
+            {{ col.name }}
+          </option>
+        </select>
+        <div
+          [hidden]="picColor.pristine || picColor.value != ''"
+          class="ui-g-8 ui-g-offset-4 ui-md-8 ui-md-offset-4 ui-lg-5 ui-lg-offset-3 alert alert-danger"
+        >
+          Veuillez sélectionner une couleur
+        </div>
+      </div>
+      <div class="ui-g-12 ui-md-12 upload">
+        <label class="ui-g-4 ui-md-4 ui-lg-3 ui-g-nopad" for="picture"
+          >Photo</label
+        >
+        <input
+          class="btn ui-g-8 ui-md-8 ui-lg-5"
+          type="file"
+          id="picture"
+          requireFile
+          [(ngModel)]="picture"
+          name="picture"
+          (change)="onChange($event)"
+          #picFile="ngModel"
+        />
+        <!-- <div *ngIf="!picFile.valid" style="color: red">A photo is required!</div> -->
+        <div
+          [hidden]="picFile.pristine || picFile.valid"
+          class="ui-g-8 ui-g-offset-4 ui-md-8 ui-md-offset-4 ui-lg-5 ui-lg-offset-3 alert alert-danger"
+        >
+          Veuillez choisir une photo
+        </div>
+      </div>
 
-            <div class="ui-g-12 ui-md-12">
-                <label class="ui-g-4 ui-md-4 ui-lg-3 ui-g-nopad" for="place">Lieu</label>
-                <input type="text" class="ui-g-8 ui-md-8 ui-lg-5" id="place" required [(ngModel)]="place" name="place" #placeName="ngModel">
-                <div [hidden]="placeName.valid || placeName.pristine" class="ui-g-8 ui-g-offset-4 ui-md-8 ui-md-offset-4 ui-lg-5 ui-lg-offset-3 alert alert-danger">Veuillez saisir un lieu</div>
-            </div>
-            <div class="ui-g-12 ui-md-12">
-                <label class="ui-g-4 ui-md-4 ui-lg-3 ui-g-nopad" for="year">Année</label>
-                <!-- <input type="text" class="ui-g-8 ui-md-8 ui-lg-5" id="year" required [(ngModel)]="year" name="year" #picYear="ngModel"> -->
-                <select class="ui-g-8 ui-md-8 ui-lg-5" id="year" required [(ngModel)]="year" name="year" #picYear="ngModel">
-                    <option value="">---</option>
-                    <option value="{{currentYear - 13}}">{{currentYear - 13}}</option>
-                    <option value="{{currentYear - 12}}">{{currentYear - 12}}</option>
-                    <option value="{{currentYear - 11}}">{{currentYear - 11}}</option>
-                    <option value="{{currentYear - 10}}">{{currentYear - 10}}</option>
-                    <option value="{{currentYear - 9}}">{{currentYear - 9}}</option>
-                    <option value="{{currentYear - 8}}">{{currentYear - 8}}</option>
-                    <option value="{{currentYear - 7}}">{{currentYear - 7}}</option>
-                    <option value="{{currentYear - 6}}">{{currentYear - 6}}</option>
-                    <option value="{{currentYear - 5}}">{{currentYear - 5}}</option>
-                    <option value="{{currentYear - 4}}">{{currentYear - 4}}</option>
-                    <option value="{{currentYear - 3}}">{{currentYear - 3}}</option>
-                    <option value="{{currentYear - 2}}">{{currentYear - 2}}</option>
-                    <option value="{{currentYear - 1}}">{{currentYear - 1}}</option>
-                    <option value="{{currentYear}}">{{currentYear}}</option>
-                </select>
-                <div [hidden]="picYear.valid || picYear.pristine" class="ui-g-8 ui-g-offset-4 ui-md-8 ui-md-offset-4 ui-lg-5 ui-lg-offset-3 alert alert-danger">Veuillez sélectionner une année</div>
-            </div>
-            <div class="ui-g-12 ui-md-12">
-                <label class="ui-g-4 ui-md-4 ui-lg-3 ui-g-nopad" for="month">Mois</label>
-                <select name="month" class="ui-g-8 ui-md-8 ui-lg-5" id="month" required [(ngModel)]="month" #picMonth="ngModel">
-                    <option value="">---</option>
-                    <option value="janvier">janvier</option>
-                    <option value="février">février</option>
-                    <option value="mars">mars</option>
-                    <option value="avril">avril</option>
-                    <option value="mai">mai</option>
-                    <option value="juin">juin</option>
-                    <option value="juillet">juillet</option>
-                    <option value="août">août</option>
-                    <option value="septembre">septembre</option>
-                    <option value="octobre">octobre</option>
-                    <option value="novembre">novembre</option>
-                    <option value="décembre">décembre</option>
-                </select>
-                <div [hidden]="picMonth.pristine || picMonth.value != ''" class="ui-g-8 ui-g-offset-4 ui-md-8 ui-md-offset-4 ui-lg-5 ui-lg-offset-3 alert alert-danger">Veuillez sélectionner un mois</div>
-            </div>
-            <div class="ui-g-12 ui-md-12">
-                <label class="ui-g-4 ui-md-4 ui-lg-3 ui-g-nopad" for="color">Couleur</label>
-                <!-- <input type="text" class="ui-g-8 ui-md-8 ui-lg-5" id="color" [(ngModel)]="color" name="color" required>       -->
-                <select name="color" class="ui-g-8 ui-md-8 ui-lg-5" id="color" required [(ngModel)]="color" #picColor="ngModel">
-                    <option value="">---</option>
-                    <option *ngFor="let col of colors" [value]="col.name">{{col.name}}</option>
-                </select>
-                <div [hidden]="picColor.pristine || picColor.value != ''" class="ui-g-8 ui-g-offset-4 ui-md-8 ui-md-offset-4 ui-lg-5 ui-lg-offset-3 alert alert-danger">Veuillez sélectionner une couleur</div>
-            </div>
-            <div class="ui-g-12 ui-md-12 upload">
-                <label class="ui-g-4 ui-md-4 ui-lg-3 ui-g-nopad" for="picture">Photo</label>
-                <input class="btn ui-g-8 ui-md-8 ui-lg-5" type="file" id="picture" requireFile [(ngModel)]="picture" name="picture" (change)="onChange($event)"
-                    #picFile="ngModel">
-                <!-- <div *ngIf="!picFile.valid" style="color: red">A photo is required!</div> -->
-                <div [hidden]="picFile.pristine || picFile.valid" class="ui-g-8 ui-g-offset-4 ui-md-8 ui-md-offset-4 ui-lg-5 ui-lg-offset-3 alert alert-danger">Veuillez choisir une photo</div>
-            </div>
-
-            <div class="ui-g-12 ui-md-12 ui-lg-8">
-                <button type="submit" class="btn btn-success" [disabled]="!pictureForm.form.valid || !picturePreview" (click)="addPic()">Enregistrer la photo</button>
-                <img *ngIf="showLoader" src="assets/img/loading_dots.gif" class="submit-loader">
-                <img [hidden]="picFile.invalid" *ngIf="!picturePreview" src="assets/img/loading_dots.gif" class="preview-loader">
-                <img [hidden]="picFile.invalid" *ngIf="picturePreview" [src]="sanitizer.bypassSecurityTrustUrl(picturePreview)" class="preview">
-            </div>
-
-            <div *ngIf="error" class="ui-g-12 ui-md-12 ui-lg-8 alert alert-danger"><p>{{msgError}}</p></div>
-
-        </form>
-    </div>
-
-    
-    
-    <div class="loaded" [hidden]="!submitted">
-        <div>{{message}}</div>
-        <button (click)="pictureForm.reset(); submitted=false; showLoader=false" class="btn btn-success">
-            <img src="assets/img/addpic.png" width="45" height="45">
-            <span>Ajouter une autre photo ?</span>
+      <div class="ui-g-12 ui-md-12 ui-lg-8">
+        <button
+          type="submit"
+          class="btn btn-success"
+          [disabled]="!pictureForm.form.valid || !picturePreview"
+          (click)="addPic()"
+        >
+          Enregistrer la photo
         </button>
-    </div>
+        <img
+          *ngIf="showLoader"
+          src="assets/img/loading_dots.gif"
+          class="submit-loader"
+        />
+        <img
+          [hidden]="picFile.invalid"
+          *ngIf="!picturePreview"
+          src="assets/img/loading_dots.gif"
+          class="preview-loader"
+        />
+        <img
+          [hidden]="picFile.invalid"
+          *ngIf="picturePreview"
+          [src]="sanitizer.bypassSecurityTrustUrl(picturePreview)"
+          class="preview"
+        />
+      </div>
+
+      <div *ngIf="error" class="ui-g-12 ui-md-12 ui-lg-8 alert alert-danger">
+        <p>{{ msgError }}</p>
+      </div>
+    </form>
+  </div>
+
+  <div class="loaded" [hidden]="!submitted">
+    <div>{{ message }}</div>
+    <button
+      (click)="pictureForm.reset(); submitted = false; showLoader = false"
+      class="btn btn-success"
+    >
+      <img src="assets/img/addpic.png" width="45" height="45" />
+      <span>Ajouter une autre photo ?</span>
+    </button>
+  </div>
 </div>

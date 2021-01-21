@@ -1,21 +1,18 @@
-import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
-import 'rxjs/add/operator/map';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
 
-import {MyApiService} from '../my-api.service';
+import { MyApiService } from "../my-api.service";
 
 @Injectable()
 export class UploadService {
+  constructor(private http: HttpClient, private myApiService: MyApiService) {}
 
-  http: any;
-
-  constructor(http: Http, private myApiService: MyApiService) {
-    this.http = http;
-   }
-
-   sendPicture(file: FormData) {
-    return this.http.post(this.myApiService.baseUrl + 'pictures/', file, this.myApiService.getHeader())
-      .map((res: Response) => res.json());
+  sendPicture(file: FormData): Observable<any> {
+    return this.http.post(
+      this.myApiService.baseUrl + "pictures/",
+      file,
+      this.myApiService.getHeader()
+    );
   }
-
 }

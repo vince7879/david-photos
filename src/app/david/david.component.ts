@@ -1,40 +1,26 @@
-import { Component, ElementRef, Input } from '@angular/core';
-import { Http, Headers, RequestOptions  } from '@angular/http';
-import { Observable} from 'rxjs/Rx';
-
-import {FormGroup, FormControl} from '@angular/forms';
-import {FileValidatorDirective} from '../file-validator.directive';
-
-import {UploadService} from './upload.service';
-import {LoginService} from '../login/login.service';
-import {MyApiService} from '../my-api.service';
-
-import { Ng2ImgMaxService } from 'ng2-img-max';
-import { DomSanitizer } from '@angular/platform-browser';
-
-import { NavBackendComponent } from '../nav-backend/nav-backend.component';
+import { Component } from "@angular/core";
+import { FormGroup } from "@angular/forms";
+import { UploadService } from "./upload.service";
+import { MyApiService } from "../my-api.service";
+import { Ng2ImgMaxService } from "ng2-img-max";
+import { DomSanitizer } from "@angular/platform-browser";
 
 @Component({
-  selector: 'app-david',
-  templateUrl: './david.component.html',
-  styleUrls: ['./david.component.css']
+  selector: "app-david",
+  templateUrl: "./david.component.html",
+  styleUrls: ["./david.component.css"],
 })
 export class DavidComponent {
-
   form: FormGroup;
   picture: File;
-  picturePreview: string;
+  picturePreview: string | ArrayBuffer;
   formdata: FormData;
   place: string;
-  // place = 'Pérou';
   year: string;
   date = new Date();
   currentYear: number;
-  // year: any = '2010';
   month: string;
-  // month = 'mars';
   color: string;
-  // color = 'Noir-Blanc';
   colors: any;
   message: string;
   error = false;
@@ -43,46 +29,45 @@ export class DavidComponent {
   submitted = false;
   showLoader = false;
 
-  constructor(private http: Http,
-              private uploadService: UploadService,
-              private loginService: LoginService,
-              private myApiService: MyApiService,
-              private ng2ImgMax: Ng2ImgMaxService,
-              public sanitizer: DomSanitizer) {
-                this.getColors();
-                this.currentYear = this.date.getFullYear();
+  constructor(
+    private uploadService: UploadService,
+    private myApiService: MyApiService,
+    private ng2ImgMax: Ng2ImgMaxService,
+    public sanitizer: DomSanitizer
+  ) {
+    this.getColors();
+    this.currentYear = this.date.getFullYear();
   }
 
   getColors() {
-    this.myApiService.getColorsInfos().subscribe(response => {
-      // console.log(response);
+    this.myApiService.getColorsInfos().subscribe((response) => {
       this.colors = response;
     });
   }
 
   onChange(event: EventTarget) {
-    this.picturePreview = '';
-    const eventObj: MSInputMethodContext = <MSInputMethodContext> event;
-    const target: HTMLInputElement = <HTMLInputElement> eventObj.target;
+    this.picturePreview = "";
+    const eventObj: MSInputMethodContext = <MSInputMethodContext>event;
+    const target: HTMLInputElement = <HTMLInputElement>eventObj.target;
     const files: FileList = target.files;
     const image = files[0];
     this.ng2ImgMax.resizeImage(image, 500, 10000).subscribe(
-      result => {
+      (result) => {
         this.picture = new File([result], result.name);
         this.getImagePreview(this.picture);
       },
-      error => {
-        console.log('😢 Oh no!', error);
+      (error) => {
+        console.log("😢 Oh no!", error);
       }
     );
     this.ng2ImgMax.compressImage(image, 3).subscribe(
-      result => {
+      (result) => {
         this.picture = new File([result], result.name);
         const formData: FormData = new FormData();
-        formData.append('uploadFile', this.picture, this.picture.name);
+        formData.append("uploadFile", this.picture, this.picture.name);
         this.formdata = formData;
       },
-      error => {
+      (error) => {
         console.log(error);
       }
     );
@@ -105,18 +90,17 @@ export class DavidComponent {
 
   addPic() {
     this.showLoader = true;
-    this.formdata.delete('place');
-    this.formdata.delete('year');
-    this.formdata.delete('month');
-    this.formdata.delete('color');
-    this.formdata.append('place', this.place);
-    this.formdata.append('year', this.year);
-    this.formdata.append('month', this.month);
-    this.formdata.append('color', this.color);
+    this.formdata.delete("place");
+    this.formdata.delete("year");
+    this.formdata.delete("month");
+    this.formdata.delete("color");
+    this.formdata.append("place", this.place);
+    this.formdata.append("year", this.year);
+    this.formdata.append("month", this.month);
+    this.formdata.append("color", this.color);
 
-    this.uploadService.sendPicture(this.formdata).subscribe(data => {
-      // console.log(data);
-      if (data.status === 'success') {
+    this.uploadService.sendPicture(this.formdata).subscribe((data) => {
+      if (data.status === "success") {
         this.error = false;
         this.message = data.message;
         this.submitted = true;
@@ -127,5 +111,4 @@ export class DavidComponent {
       }
     });
   }
-
 }

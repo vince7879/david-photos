@@ -1,19 +1,16 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component, OnInit, DoCheck } from "@angular/core";
 
-import {Router, ActivatedRoute, Params} from '@angular/router';
-import {MyApiService} from '../my-api.service';
+import { ActivatedRoute, Params } from "@angular/router";
+import { MyApiService } from "../my-api.service";
 
-import { DragulaService } from 'ng2-dragula';
-
-
+import { DragulaService } from "ng2-dragula";
 
 @Component({
-  selector: 'app-backend',
-  templateUrl: './backend.component.html',
-  styleUrls: ['./backend.component.scss']
+  selector: "app-backend",
+  templateUrl: "./backend.component.html",
+  styleUrls: ["./backend.component.scss"],
 })
 export class BackendComponent implements DoCheck, OnInit {
-
   baseUrl: string;
   newPage: boolean;
   color: string;
@@ -22,20 +19,22 @@ export class BackendComponent implements DoCheck, OnInit {
   color_collection: any;
   picture_collection: any;
 
-  constructor(private activatedRoute: ActivatedRoute,
-              private myApiService: MyApiService,
-              private dragulaService: DragulaService) {
-                const bag: any = this.dragulaService.find('bag-one');
-                if (bag !== undefined ) {
-                  this.dragulaService.destroy('bag-one');
-                }
-                dragulaService.setOptions('bag-one', {});
-                dragulaService.dropModel.subscribe((value) => {
-                  this.onDropModel(value);
-                });
-               }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private myApiService: MyApiService,
+    private dragulaService: DragulaService
+  ) {
+    const bag: any = this.dragulaService.find("bag-one");
+    if (bag !== undefined) {
+      this.dragulaService.destroy("bag-one");
+    }
+    dragulaService.setOptions("bag-one", {});
+    dragulaService.dropModel.subscribe((value) => {
+      this.onDropModel(value);
+    });
+  }
 
-    private onDrag(args) {
+  private onDrag(args) {
     const [e, el] = args;
     // do something
   }
@@ -57,9 +56,9 @@ export class BackendComponent implements DoCheck, OnInit {
 
   private onDropModel(args) {
     const [el, target, source] = args;
-    this.myApiService.setNewOrder(this.picture_collection).subscribe(response => {
-      // console.log(response);
-    });
+    this.myApiService
+      .setNewOrder(this.picture_collection)
+      .subscribe((response) => {});
   }
 
   ngOnInit() {
@@ -85,23 +84,22 @@ export class BackendComponent implements DoCheck, OnInit {
       this.newPage = true;
     } else {
       this.newPage = false;
-      this.myApiService.getHexacodeColor(this.color).subscribe(response => {
-        this.hexacode = response.json().hexacode;
+      this.myApiService.getColorInfo(this.color).subscribe((info) => {
+        this.hexacode = info.hexacode;
       });
     }
   }
 
   getColorsMenu() {
     this.oldColor = this.color;
-    this.myApiService.getColorsMenu(this.color).subscribe(response => {
-      this.color_collection = response.json();
+    this.myApiService.getOtherColors(this.color).subscribe((response) => {
+      this.color_collection = response;
     });
   }
 
   getPicturesToEdit() {
-    this.myApiService.PicturesToEdit(this.color).subscribe(response => {
-      this.picture_collection = response.json();
+    this.myApiService.PicturesToEdit(this.color).subscribe((response) => {
+      this.picture_collection = response;
     });
   }
-
 }

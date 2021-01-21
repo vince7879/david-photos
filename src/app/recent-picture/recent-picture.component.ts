@@ -61,17 +61,17 @@ export class RecentPictureComponent
   }
 
   getRecentPictureDetailById(id) {
-    this.myApiService.getPicture(id).subscribe((response) => {
-      if (!response.json().data) {
+    this.myApiService.getPictureInfo(id).subscribe((response) => {
+      if (!response.data) {
         this.router.navigate(["/404"]);
       }
-      this.picture = response.json().data;
+      this.picture = response.data;
     });
   }
 
   getRecentCollection() {
     this.myApiService.getRecentPic().subscribe((response) => {
-      this.recentPhotosCollection = response.json().data;
+      this.recentPhotosCollection = response.data;
     });
   }
 }

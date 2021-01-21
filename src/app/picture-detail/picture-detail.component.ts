@@ -42,14 +42,14 @@ export class PictureDetailComponent
 
   ngOnInit() {
     this.baseUrl = this.myApiService.getBaseUrl();
-    this.getPictureDetailById(this.picId);
-    this.getPicNbByColor(this.color);
-    this.getHexacode();
+    this.getPictureInfoById(this.picId);
+    this.getPicturesCountByColor(this.color);
+    this.getColorHexacode();
   }
 
   ngDoCheck() {
     if (this.oldPicId !== this.picId) {
-      this.getPictureDetailById(this.picId);
+      this.getPictureInfoById(this.picId);
     }
   }
 
@@ -70,39 +70,39 @@ export class PictureDetailComponent
     this.getPictureIdByColorAndRank(this.color, this.rank);
   }
 
-  getPictureDetailById(id) {
+  getPictureInfoById(id: number) {
     this.oldPicId = id;
-    this.myApiService.getPicture(id).subscribe((response) => {
-      if (!response.json().data) {
+    this.myApiService.getPictureInfo(id).subscribe((response) => {
+      if (!response.data) {
         this.router.navigate(["/404"]);
       }
-      this.picture = response.json().data;
-      this.rank = this.picture.rank;
-      this.oldRank = this.rank;
+      this.picture = response.data;
+      this.rank = response.data.rank;
+      this.oldRank = response.data.rank;
     });
   }
 
-  getPictureIdByColorAndRank(color, rank) {
+  getPictureIdByColorAndRank(color: string, rank: number) {
     this.oldPicId = this.picId;
     this.myApiService
       .getPictureIdByColorAndRank(color, rank)
       .subscribe((response) => {
-        this.picId = response.json().data.id;
+        this.picId = response.data.id;
       });
   }
 
-  getHexacode() {
-    this.myApiService.getHexacodeColor(this.color).subscribe((response) => {
-      this.hexacode = response.json().hexacode;
+  getColorHexacode() {
+    this.myApiService.getColorInfo(this.color).subscribe((response) => {
+      this.hexacode = response.hexacode;
     });
   }
 
-  getPicNbByColor(color) {
-    this.myApiService.getPicNbByColor(color).subscribe((response) => {
-      if (!response.json().data) {
+  getPicturesCountByColor(color: string) {
+    this.myApiService.getPicturesCountByColor(color).subscribe((response) => {
+      if (!response.data) {
         this.router.navigate(["/404"]);
       }
-      this.picNb = response.json().data;
+      this.picNb = response.data;
     });
   }
 }

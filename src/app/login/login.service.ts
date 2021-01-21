@@ -1,31 +1,30 @@
-import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions} from '@angular/http';
-import { Observable} from 'rxjs/Rx';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
 
-import {MyApiService} from '../my-api.service';
+import { MyApiService } from "../my-api.service";
 
 @Injectable()
 export class LoginService {
-
-  // authToken;
-  // public headers: Headers;
   baseUrl: string;
 
-  constructor(private http: Http, private myApiService: MyApiService) {
+  constructor(private http: HttpClient, private myApiService: MyApiService) {
     this.baseUrl = this.myApiService.getBaseUrl();
-   }
+  }
 
-  signIn(login, password): Observable<Response> {
-    return  this.http.post(this.baseUrl + 'user/login', {login: login, pwd: password});
+  signIn(login: string, password: string): Observable<any> {
+    return this.http.post(this.baseUrl + "user/login", {
+      login: login,
+      pwd: password,
+    });
   }
 
   IsLogged() {
     this.myApiService.loadUserCredentials();
-    if (!this.myApiService.authToken || this.myApiService.authToken === '') {
+    if (!this.myApiService.authToken || this.myApiService.authToken === "") {
       return false;
     } else {
       return true;
     }
   }
-
 }
