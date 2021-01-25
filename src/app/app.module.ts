@@ -2,7 +2,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
-import { MatDialogModule } from "@angular/material";
+import { MatDialogModule } from "@angular/material/dialog";
 import { ConfirmationDialogComponent } from "./confirmation-dialog/confirmation-dialog.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 

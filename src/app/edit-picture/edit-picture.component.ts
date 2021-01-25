@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { MyApiService } from "../my-api.service";
-import { MatDialog, MatDialogRef } from "@angular/material";
+import { MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { ConfirmationDialogComponent } from "../confirmation-dialog/confirmation-dialog.component";
 
 @Component({
