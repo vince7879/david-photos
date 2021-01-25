@@ -5,9 +5,9 @@ import { Observable } from "rxjs";
 @Injectable()
 export class MyApiService {
   //     connexion locale
-  // baseUrl = "http://127.0.0.1:3000/";
+  baseUrl = "http://127.0.0.1:3000/";
   //     connexion david server
-  baseUrl = "https://api.david-photo.org/";
+  // baseUrl = "https://api.david-photo.org/";
   authToken = null;
 
   constructor(private http: HttpClient) {}
