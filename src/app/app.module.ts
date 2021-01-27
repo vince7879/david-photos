@@ -27,7 +27,6 @@ import { RecentPictureComponent } from "./recent-picture/recent-picture.componen
 import { RecentComponent } from "./recent/recent.component";
 import { BackendComponent } from "./backend/backend.component";
 
-import { OrderListModule } from "primeng/primeng";
 import { DragulaModule } from "ng2-dragula";
 import { EditPictureComponent } from "./edit-picture/edit-picture.component";
 import { Ng2ImgMaxModule } from "ng2-img-max";
@@ -61,7 +60,6 @@ import { RecentDirective } from "./dashboard/recent.directive";
     HttpClientModule,
     FormsModule,
     LoginModule,
-    OrderListModule,
     DragulaModule,
     MatDialogModule,
     BrowserAnimationsModule,
@@ -69,6 +67,5 @@ import { RecentDirective } from "./dashboard/recent.directive";
   ],
   providers: [MyApiService, LoggedInGuardService, LoginService, UploadService],
   bootstrap: [AppComponent],
-  entryComponents: [ConfirmationDialogComponent],
 })
 export class AppModule {}

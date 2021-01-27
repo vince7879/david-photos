@@ -1,26 +1,38 @@
 <app-nav-backend></app-nav-backend>
 <div *ngIf="newPage" class="container ui-g-12 ui-md-6 ui-g-nopad">
-    <h1>Choisissez une galerie à éditer</h1>
-    <ul class="colorsToEdit">
-        <li *ngFor="let c of color_collection">
-            <a [routerLink]="['/backend', { color: c.name }]" class="{{c.name}}" [ngStyle]="{'background-color':c.hexacode}"></a>
-        </li>
-    </ul>
+  <h1>Choisissez une galerie à éditer</h1>
+  <ul class="colorsToEdit">
+    <li *ngFor="let c of color_collection">
+      <a
+        [routerLink]="['/backend', { color: c.name }]"
+        class="{{ c.name }}"
+        [ngStyle]="{ 'background-color': c.hexacode }"
+      ></a>
+    </li>
+  </ul>
 </div>
 <div *ngIf="!newPage" class="container ui-g-12 ui-md-6 ui-g-nopad">
-    <ul class="colorsToEdit">
-        <li *ngFor="let c of color_collection">
-            <a [routerLink]="['/backend', { color: c.name }]" class="{{c.name}}" [ngStyle]="{'background-color':c.hexacode}"></a>
-        </li>
-    </ul>
-    <h2>Editer la galerie "{{color}}"</h2>
-    <ul class="thumbnailsList" [dragula]='"bag-one"' [dragulaModel]='picture_collection'>
-        <li *ngFor="let p of picture_collection" class="{{p.rank}}" id="{{p.id}}">
-            <div class="square {{p.orientation}}">
-                <a [routerLink]="['/edit', p.color_name, p.id]" class="preview">
-                    <img appPreview src="{{baseUrl}}{{p.thumb_name}}" class="tn">
-                </a>
-            </div>
-        </li>
-    </ul>
+  <ul class="colorsToEdit">
+    <li *ngFor="let c of color_collection">
+      <a
+        [routerLink]="['/backend', { color: c.name }]"
+        class="{{ c.name }}"
+        [ngStyle]="{ 'background-color': c.hexacode }"
+      ></a>
+    </li>
+  </ul>
+  <h2>Editer la galerie "{{ color }}"</h2>
+  <ul
+    class="thumbnailsList"
+    [dragula]="'bag-one'"
+    [dragulaModel]="picture_collection"
+  >
+    <li *ngFor="let p of picture_collection">
+      <div class="square {{ p.orientation }}">
+        <a [routerLink]="['/edit', p.color_name, p.id]" class="preview">
+          <img appPreview src="{{ baseUrl }}{{ p.thumb_name }}" class="tn" />
+        </a>
+      </div>
+    </li>
+  </ul>
 </div>
